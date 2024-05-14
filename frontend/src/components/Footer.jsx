@@ -267,7 +267,6 @@ const Footer = () => {
                         </div>
                         <form
                           method="post"
-                          action="/contact#ContactFooter"
                           id="ContactFooter"
                           accept-charset="UTF-8"
                           className="footer__newsletter newsletter-form"
@@ -278,14 +277,14 @@ const Footer = () => {
                             value="customer"
                           ></input>
                           <input type="hidden" name="utf8" value="✓"></input>
-                          <p className="newsletter-form-heading">
+                          <p style={{fontSize:"15px", fontWeight:"bolder"}} className="newsletter-form-heading">
                             Subscribe to Our Newsletter{" "}
                           </p>
-                          <input
+                          {/* <input
                             type="hidden"
                             name="contact[tags]"
                             value="newsletter"
-                          />
+                          /> */}
 
                           <div className="field">
                             <input
@@ -293,13 +292,14 @@ const Footer = () => {
                               type="email"
                               name="contact[email]"
                               className="field__input required"
-                              value=""
+                              // value=""
                               aria-required="true"
                               autocorrect="off"
                               autocapitalize="none"
                               autocomplete="email"
                               placeholder="Your Email Address"
                               required=""
+                              style={{color:"black"}}
                             ></input>
                             <button
                               type="submit"
