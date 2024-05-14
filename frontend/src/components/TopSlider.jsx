@@ -47,16 +47,13 @@ const Desc = styled.div`
     color: #fff4e6;
     gap: 20px;
 `;
-
 const Icon = styled.div`
     transform: scaleX(-1);
 `;
-
 const HoverContainer = styled(Container)`
     @media (max-width: 480px) {
     }
 `;
-
 const TopSlider = () => {
     const slides = [
         {
@@ -80,14 +77,11 @@ const TopSlider = () => {
             title: "Free Shipping within lanka",
         },
     ];
-
     const [slideIndex, setSlideIndex] = useState(0);
-
     useEffect(() => {
         const interval = setInterval(() => {
             setSlideIndex(prevIndex => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
         }, 2000);
-
         return () => clearInterval(interval);
     }, []);
 
