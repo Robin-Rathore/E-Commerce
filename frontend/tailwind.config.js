@@ -4,10 +4,10 @@ export default {
     theme: {
       extend: {
         colors: {
-          PrimaryColor: "#fff4e6", // A subtle peach tone for warmth
-          SecondaryColor: "#ffd699", // A light golden shade for elegance
-          DarkColor: "#cc7a00", // A deeper, warm brown for contrast
-          ExtraDarkColor: "#996300", // A rich, earthy tone for emphasis
+          PrimaryColor: "#ffffff", // A subtle peach tone for warmth
+          SecondaryColor: "#52b6aa", // A light golden shade for elegance
+          DarkColor: "#002d46", // A deeper, warm brown for contrast
+          ExtraDarkColor: "#002d46", // A rich, earthy tone for emphasis
         },
         
       },

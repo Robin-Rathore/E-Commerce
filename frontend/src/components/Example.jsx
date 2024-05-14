@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const Example = () => {
     useEffect(() => {
         AOS.init({
-          offset: 1,
+          offset: 10,
           duration: 300,
         });
       }, []);
@@ -65,11 +65,11 @@ const FlyoutLink = ({ children, href, FlyoutContent }) => {
 const PricingContent = () => {
   return (
     <div style={{zIndex: "999 !important"}} className="w-64 bg-white p-6 shadow-xl">
-      <div data-aos="fade-up" className="mb-3 space-y-3">
-        <a href="#" className="block text-sm hover:underline">
+      <div className="mb-3 space-y-3">
+        <a data-aos="fade-up" href="#" className="block text-sm hover:underline">
           Luxe Edition
         </a>
-        <a href="#" className="block text-sm hover:underline">
+        <a data-aos="fade-up" href="#" className="block text-sm hover:underline">
           Value Edition
         </a>
       </div>
@@ -78,7 +78,7 @@ const PricingContent = () => {
           Women's Edition
         </a>
       </div>
-      <button data-aos="fade-up" className="w-full rounded-lg border-2 border-neutral-950 px-4 py-2 font-semibold transition-colors hover:bg-neutral-950 hover:text-white">
+      <button data-aos="fade-up" className="w-full rounded-lg border-2 border-neutral-900 px-4 py-2 font-semibold transition-colors hover:bg-DarkColor hover:text-white">
         View All
       </button>
     </div>

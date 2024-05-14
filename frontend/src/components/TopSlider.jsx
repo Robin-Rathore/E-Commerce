@@ -9,8 +9,8 @@ const Boundary = styled.div`
     justify-content: center;
     align-items: center;
     width: 100vw;
+    overflow: hidden;
     z-index: -1;
-    position: fixed;
 `;
 
 const Container = styled.div`
@@ -65,15 +65,15 @@ const TopSlider = () => {
         },
         {
             imgSrc: <ShoppingCartIcon />,
-            title: "Free Shipping within Asia",
+            title: "Shop Now For The Best Prices",
         },
         {
             imgSrc: <LocalShippingIcon />,
-            title: "Free Shipping within Test",
+            title: "Extra 5% Off on all Prepaid Offers",
         },
         {
             imgSrc: <ShoppingCartIcon />,
-            title: "Free Shipping within Afgan",
+            title: "Book An Appointment",
         },
         {
             imgSrc: <LocalShippingIcon />,
