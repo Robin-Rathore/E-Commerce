@@ -9,7 +9,6 @@
     line-height: calc(1 + .8 / var(--font-body-scale));
     background-color: #002d46;
     width: 100%;
-    height: 550px;
     margin-top: 100px;
     bottom: 0;
 
@@ -21,11 +20,19 @@
         height: 100%;
         padding: 70px 50px 120px 50px;
 
+        @include mobile(){
+            padding: 20px 25px;
+        }
+
         .grid {
             display: grid;
             width: 100%;
             height: 100%;
             display: flex;
+
+            @include mobile(){
+                display: grid;
+            }
 
             .footer__content-left{
                 flex: 9;
@@ -41,12 +48,27 @@
                     display: flex;
                     gap: 40px;
                     justify-content: center;
+                    @include mobile(){
+                        flex-direction: column;
+                    }
+
+                    .grid__item{
+                        flex: 1;
+                        flex-direction: column;
+                        align-items: center;
+                        @include mobile(){
+                            flex-direction: initial;
+                        }
+                    }
                 }
                     .center-content{
                         display: flex;
                         flex-direction: column;
                         justify-content: flex-start;
                         gap: 20px;
+                        @include mobile(){
+                            gap: 0px;
+                        }
 
                         ul{
                             display: flex;
@@ -63,6 +85,13 @@
 
                     .footer-block__details-content {
                         text-align: left;
+
+                        @include mobile(){
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: center;
+                            padding: 20px 0px 0px 0px;
+                        }
                       }
                     .footer-block-image {
                         line-height: 0;
@@ -130,11 +159,18 @@
     flex-direction: column;
     padding: 0 20px 0 50px;
     gap: 20px;
+
+    @include mobile(){
+        padding: 50px 0px;
+    }
 }
 #ContactFooter{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @include mobile(){
+        gap: 20px;
+    }
 }
 .field{
     display: flex;
@@ -147,6 +183,9 @@
     padding: 7px;
     font-size: 14px;
     outline: none;
+    @include mobile(){
+        height: 40px;
+    }
 }
 
 .button{
@@ -156,6 +195,9 @@
     height: 45px;
     font-size: 15px;
     font-weight: bolder;
+    @include mobile(){
+        height: 40px;
+    }
 }
 
 .button:hover{
@@ -173,6 +215,10 @@
     justify-content: center;
     font-size: 15px;
     font-weight: bolder;
+    @include mobile(){
+        height: 40px;
+        width: 70%;
+    }
 }
 .bottom-cta-wrapper:hover{
     color: #002d46;

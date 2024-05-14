@@ -38,12 +38,7 @@ const Footer = () => {
                 style={{ display: "flex" }}
                 className="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet"
               >
-                <footer-accordion
-                  style={{
-                    flex: "1",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
+                <div
                   className="grid__item accordion footer-block "
                 >
                   <p className="h4 accordion__title"></p>
@@ -65,15 +60,9 @@ const Footer = () => {
                       technology and design in each of our products.
                     </p>
                   </div>
-                </footer-accordion>
+                </div>
 
-                <footer-accordion
-                  style={{
-                    display: "flex",
-                    flex: "1",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
+                <div
                   className="accordion footer-block grid__item footer-block--menu"
                 >
                   <div className="center-content">
@@ -97,14 +86,14 @@ const Footer = () => {
                       </li>
                     </ul>
                   </div>
-                </footer-accordion>
-                <footer-accordion
-                  style={{
-                    display: "flex",
-                    flex: "1",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
+                </div>
+                <div
+                  // style={{
+                  //   display: "flex",
+                  //   flex: "1",
+                  //   flexDirection: "column",
+                  //   alignItems: "center",
+                  // }}
                   className="accordion footer-block grid__item footer-block--menu"
                 >
                   <div className="center-content">
@@ -137,14 +126,14 @@ const Footer = () => {
                       </li>
                     </ul>
                   </div>
-                </footer-accordion>
-                <footer-accordion
-                  style={{
-                    display: "flex",
-                    flex: "1",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
+                </div>
+                <div
+                  // style={{
+                  //   display: "flex",
+                  //   flex: "1",
+                  //   flexDirection: "column",
+                  //   alignItems: "center",
+                  // }}
                   className="accordion footer-block grid__item footer-block--menu"
                 >
                   <div className="center-content">
@@ -226,7 +215,7 @@ const Footer = () => {
                       </li>
                     </ul>
                   </div>
-                </footer-accordion>
+                </div>
               </div>
             </div>
             <div className="grid__item footer__content-right">
