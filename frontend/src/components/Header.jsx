@@ -4,7 +4,9 @@ import Example from "./Example";
 import Rihgt_Header from "./Rihgt_Header";
 import { BarChart, BarChart3 } from "lucide-react";
 import data from "./data";
-
+import Sidebar from "./Sidebar";
+import TocIcon from '@mui/icons-material/Toc';
+import { Link } from "react-router-dom";
 const FlyoutLink = ({ children, href}) => {
     const [open, setOpen] = useState(false);
   
@@ -50,11 +52,11 @@ const Header = () => {
     <div>
       <div className="header-wrapper">
         <header>
-          <div className="sidebarx">
-            
+          <div className="sidebar">
+            <Sidebar/>
           </div>
           <div className="header-left">
-          <a href="#" children={"Logo and Name"} >Logo and Name</a>
+          <a href="#" children={"Logo and Name"} >ELECTRONIC JUNCTION</a>
           </div>
           <div className="header-center">
             <nav className="header__inline-menu">

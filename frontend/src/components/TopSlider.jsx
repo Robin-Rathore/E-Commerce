@@ -49,7 +49,7 @@ const Desc = styled.div`
     font-family: "Oswald", sans-serif;
     align-items: center;
     font-size: 14px;
-    color: #fff4e6;
+    color: white;
     gap: 20px;
 `;
 const Icon = styled.div`
