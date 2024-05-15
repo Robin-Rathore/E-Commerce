@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Carousel.css"
-const Carousel = ({ data }) => {
+const Carousel = () => {
 const [slide, setSlide] = useState(0);
   return (
    <div className="main-container">

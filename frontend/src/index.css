@@ -12,3 +12,36 @@ body {
 .slick-slide>div {
   margin: 0 10px;
 }
+
+
+.icon-container {
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.icon-container:hover {
+  background-color: #ccc; /* Change to the desired hover background color */
+}
+
+.shining-btn {
+  position: relative;
+}
+
+.shining-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+
+.shining-btn:hover::after {
+  opacity: 1;
+}
+
