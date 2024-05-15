@@ -4,7 +4,6 @@ import google from "../images/google-icon.png"
 import apple from "../images/apple-icon.png"
 import facebook from "../images/facebook-icon.png"
 import twitter from "../images/twitter-icon.png"
-import Login from './Login';
 
 
 const Signup = () => {
@@ -22,8 +21,7 @@ const Signup = () => {
             {/* Login instead */}
             <div className="flex flex-col md:flex-row">
               <p className="text-m font-normal text-gray-600 mb-3 md:mb-0 md:mt-1/2">Already have an account?  </p>
-              <a href="/Signup" className='ml-3 mb-2' style={{ color: "#00b9aa" }}> Login </a>
-              {/* <Link to={<Login/>}/> */}
+              <Link to={"/login"} href="/Signup" className='ml-3 mb-2' style={{ color: "#00b9aa" }}> Login </Link>
             </div>
             
 

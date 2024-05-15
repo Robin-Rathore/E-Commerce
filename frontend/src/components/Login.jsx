@@ -15,7 +15,7 @@ const Login = () => {
     
 
     <div className="flex justify-center items-center ">
-        <div className="flex justify-center my-5 items-center bg-red-400" style={{}}>
+        <div className="flex justify-center my-5 items-center bg-red-400 " style={{}}>
           <form className="bg-white p-10 md:p-20 rounded shadow-lg" style={{}} >
 
             {/* Login*/}
@@ -24,8 +24,7 @@ const Login = () => {
             {/* Create Account */}
             <div className="flex flex-col md:flex-row">
               <p className="text-m font-normal text-gray-600 mb-3 md:mb-0 md:mt-1/2">Don't have an account yet?  </p>
-              <a href="/Signup" className='ml-3 mb-2' style={{ color: "#00b9aa" }}> Create Account </a>
-              {/* <Link to={<Signup/>}/> */}
+              <Link to={"/register"} className='ml-3 mb-2' style={{ color: "#00b9aa" }}> Create Account </Link>
               
               
             </div>

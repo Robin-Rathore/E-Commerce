@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-<<<<<<< HEAD
 import "./Carousel.css";
 
 const Carousel = () => {
@@ -10,11 +9,6 @@ const Carousel = () => {
     { src: "https://img.freepik.com/free-vector/gradient-real-estate-facebook-cover_23-2149150267.jpg?t=st=1715701733~exp=1715705333~hmac=b191b4c32e1523381fa1cf75862ebb83361df1445120eab527b8406d7f0ccf58&w=2000", alt: "Image 2" },
     { src: "https://img.freepik.com/premium-vector/gradient-real-estate-instagram-stories_23-2149150260.jpg", alt: "Image 3" },
   ];
-=======
-import "./Carousel.css"
-const Carousel = () => {
-const [slide, setSlide] = useState(0);
->>>>>>> 1fc7325829797bb16fa36967bff5b727c99f3e6b
   return (
     <div className="main-container">
       <div className="carousel">
