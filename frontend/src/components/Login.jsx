@@ -65,11 +65,10 @@ const Login = () => {
               <input
                 required
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
-                // type={}
+                type="password"
                 placeholder="Password"
                 name="password"
                 // value={}
-                
               />              
             </div>
  

@@ -89,7 +89,7 @@ const Signup = () => {
               <input
                 required
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
-                // type={}
+                type="password"
                 placeholder="Password"
                 name="password"
                 // value={}
@@ -99,9 +99,12 @@ const Signup = () => {
 
 
             {/**Create accnt button*/}
-            <button type="submit" className="w-full py-2 rounded-lg text-white font-semibold mb-0 mt-5 shining-btn" style={{ backgroundColor: "#52B6AA" }}>
-              Create Account
-            </button>
+            <div className="createAcc">
+              <button  className="w-full py-2 rounded-lg text-white font-semibold mb-0 mt-5 shining-btn" style={{ backgroundColor: "#52B6AA" }}>
+                Create Account
+              </button>
+            </div>
+            
 
           </form>
         </div>
