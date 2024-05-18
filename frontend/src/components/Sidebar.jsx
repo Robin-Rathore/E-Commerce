@@ -17,6 +17,7 @@ import SpeakerGroupIcon from '@mui/icons-material/SpeakerGroup';
 import CableIcon from '@mui/icons-material/Cable';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import RssFeedIcon from '@mui/icons-material/RssFeed';
+import { Link } from 'react-router-dom';
 export default function Sidebar() {
 
     const FlyoutLink = ({ children, href}) => {
@@ -58,7 +59,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<WatchIcon />}
               </ListItemIcon> 
-              <FlyoutLink>SMART WATCHES</FlyoutLink>
+              <Link to={"./smartwatch"}><FlyoutLink>SMART WATCHES</FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -68,7 +69,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<FiberNewIcon />}
               </ListItemIcon> 
-              <FlyoutLink>NEW LAUNCHES</FlyoutLink>
+              <Link to={"./newlaunches"}><FlyoutLink><span className="label">NEW LAUNCHES</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -79,7 +80,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<HeadsetIcon />}
               </ListItemIcon> 
-              <FlyoutLink>EARPHONES</FlyoutLink>
+              <Link to={"./earphones"}> <FlyoutLink><span className="label">EARPHONES</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -90,7 +91,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<SpeakerGroupIcon />}
               </ListItemIcon> 
-              <FlyoutLink>SPEAKERS</FlyoutLink>
+              <Link to={"./speakers"}> <FlyoutLink><span className="label">SPEAKERS</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -102,7 +103,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<CableIcon />}
               </ListItemIcon> 
-              <FlyoutLink>ACCESSORIES</FlyoutLink>
+              <Link to={"./accessories"}><FlyoutLink><span className="label">ACCESSORIES</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -113,7 +114,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<LocalShippingIcon />}
               </ListItemIcon> 
-              <FlyoutLink>BULK ORDERS</FlyoutLink>
+              <FlyoutLink><span className="label"><Link to={"/bulkorder"}>BULK ORDERS</Link></span></FlyoutLink>
             </ListItemButton>
           </ListItem>
       </List>

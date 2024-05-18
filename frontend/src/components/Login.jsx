@@ -15,8 +15,8 @@ const Login = () => {
     
 
     <div className="flex justify-center items-center ">
-        <div className="flex justify-center my-5 items-center bg-red-400 " style={{}}>
-          <form className="bg-white p-10 md:p-20 rounded shadow-lg" style={{}} >
+        <div className="flex justify-center my-5 items-center bg-red-400" style={{ width: "550px" }}>
+          <form className="bg-white p-10 md:p-20 rounded shadow-lg w-full" style={{}} >
 
             {/* Login*/}
             <h1 className="text-gray-800 font-bold text-3xl mb-5">Login</h1>{} 

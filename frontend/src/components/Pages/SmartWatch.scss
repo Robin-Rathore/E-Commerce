@@ -1,0 +1,24 @@
+@mixin mobile {
+    @media screen and (max-width: 480px) {
+      @content;
+    }
+  }
+
+.wrapper_of_SmartWatch{
+    width: 100%;
+}
+.main_content_SmartWatch{
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading_SmartWatch{
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 0;
+    @include mobile(){
+        font-size: 25px;
+    }
+}

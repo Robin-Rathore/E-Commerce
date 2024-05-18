@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const Example = () => {
     useEffect(() => {
@@ -12,10 +13,11 @@ const Example = () => {
       }, []);
     
   return (
-    <div style={{fontSize: "13px", display:"flex", alignItems:"center"}} className="flex mr-7 font-medium py-0 pb-3">
-      <FlyoutLink href="#" FlyoutContent={PricingContent}>
+    <div style={{fontSize: "13px", display:"flex", alignItems:"center", zIndex:"99"}} className="flex mr-7 font-medium py-0 pb-3">
+      <Link to={"./smartwatch"}><FlyoutLink FlyoutContent={PricingContent}>
       SMART WATCHES
       </FlyoutLink>
+      </Link>
     </div>
   );
 };
@@ -66,21 +68,28 @@ const PricingContent = () => {
   return (
     <div style={{zIndex: "999 !important"}} className="w-64 bg-white p-6 shadow-xl">
       <div className="mb-3 space-y-3">
-        <a data-aos="fade-up" href="#" className="block text-sm hover:underline">
+       <Link to={"./bulkorder"}> <a data-aos="fade-up" href="#" className="block text-sm hover:underline">
           Luxe Edition
         </a>
-        <a data-aos="fade-up" href="#" className="block text-sm hover:underline">
+        </Link>
+        <Link to={"./bulkorder"}> 
+        <a style={{marginTop:"12px"}} data-aos="fade-up" href="#" className="block text-sm hover:underline">
           Value Edition
         </a>
+        </Link>
       </div>
       <div data-aos="fade-up" className="mb-6 space-y-3">
+      <Link to={"./bulkorder"}> 
         <a href="#" className="block text-sm hover:underline">
           Women's Edition
         </a>
+        </Link>
       </div>
+      <Link to={"./bulkorder"}> 
       <button data-aos="fade-up" className="w-full rounded-lg border-2 border-neutral-900 px-4 py-2 font-semibold transition-colors hover:bg-DarkColor hover:text-white">
         View All
       </button>
+      </Link>
     </div>
   );
 };

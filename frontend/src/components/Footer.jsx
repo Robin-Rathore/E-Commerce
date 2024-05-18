@@ -3,6 +3,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import YouTubeIcon from '@mui/icons-material/YouTube';
+import Logo from "../images/logo.png"
 import "./Footer.scss";
 const Footer = () => {
   const FlyoutLink = ({ children, href }) => {
@@ -53,8 +54,8 @@ const Footer = () => {
                       />
                     </a>
                     <p className="caption-large">
-                      Since inception in 2013, there has been one principle that
-                      we, at Pebble have held as holy grail – build experiences
+                      Since inception in 2022, there has been one principle that
+                      we, at Electronic Junction have held as holy grail – build experiences
                       crafted around ‘you’. We are a technology brand that
                       endeavours to get the perfect blend of innovation,
                       technology and design in each of our products.
@@ -70,7 +71,15 @@ const Footer = () => {
                     <ul className="footer-block__details-content list-unstyled">
                       <li>
                         <a
-                          href="/collections/headphones"
+                          href="/smartwatch"
+                          className="link list-menu__item list-menu__item--link"
+                        >
+                          <FlyoutLink>Smart Watches</FlyoutLink>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="/earphones"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Headphones</FlyoutLink>
@@ -78,7 +87,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/collections/wireless-speaker"
+                          href="/speakers"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Wireless Speakers</FlyoutLink>
@@ -102,7 +111,7 @@ const Footer = () => {
                     <ul className="footer-block__details-content list-unstyled">
                       <li>
                         <a
-                          href="/pages/about-us"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Our Story</FlyoutLink>
@@ -110,7 +119,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/pages/corporate-order"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Corporate Orders</FlyoutLink>
@@ -118,7 +127,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/policies/contact-information"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Contact Us</FlyoutLink>
@@ -141,7 +150,7 @@ const Footer = () => {
                     <ul className="footer-block__details-content list-unstyled">
                       <li>
                         <a
-                          href="/pages/register-your-product"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Register Product Warranty</FlyoutLink>
@@ -149,7 +158,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/pages/raise-a-complaint"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Raise Warranty Complaint</FlyoutLink>
@@ -157,7 +166,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/pages/faqs"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>FAQs</FlyoutLink>
@@ -165,7 +174,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/pages/warranty-policy"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Warranty Policy</FlyoutLink>
@@ -173,7 +182,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/policies/refund-policy"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>
@@ -183,7 +192,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/policies/shipping-policy"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Shipping Policy</FlyoutLink>
@@ -191,7 +200,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/policies/privacy-policy"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Privacy Policy</FlyoutLink>
@@ -199,7 +208,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/pages/e-waste-policy"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>E-waste Policy</FlyoutLink>
@@ -207,7 +216,7 @@ const Footer = () => {
                       </li>
                       <li>
                         <a
-                          href="/policies/terms-of-service"
+                          href="/"
                           className="link list-menu__item list-menu__item--link"
                         >
                           <FlyoutLink>Terms of Service</FlyoutLink>
@@ -230,25 +239,25 @@ const Footer = () => {
                       <div className="footer-block__newsletter">
                         <div className="footer__newsletter_content typeset rte">
                           <p>
-                            Vaishnavi Properties, #30/1, Silicon Terraces,, 2nd
-                            and 3rd Floor, Adugodi, Hosur Main Road,
-                            Koramangala, Bengaluru – 560095
+                            Near Raghav Tower, street no. 2, Fatehpur Herbertpur,
+                            Vikasnagar, Dehradun, Uttrakhand,
+                            India – 248142
                           </p>
                           <p>
                             Email:{" "}
                             <a
-                              href="mailto:support@pebblecart.com"
-                              title="mailto:support@pebblecart.com"
+                              href="mailto:electronicjunction@gmail.com"
+                              title="mailto:electronicjunction@gmail.com"
                             >
-                              support@pebblecart.com
+                              electronicjunction@gmail.com
                             </a>
                             <br />
                             Phone:{" "}
                             <a
-                              href="tel:+91-8800271651 "
-                              title="tel:+91-8800271651 "
+                              href="tel:+91-8279884918 "
+                              title="tel:+91-8279884918 "
                             >
-                              +91-8800271651{" "}
+                              +91-8279884918{" "}
                             </a>{" "}
                             <br />
                             Mon-Sun: 10:00AM - 7:00PM
@@ -288,7 +297,7 @@ const Footer = () => {
                               autocomplete="email"
                               placeholder="Your Email Address"
                               required=""
-                              style={{color:"black"}}
+                              style={{color:"white"}}
                             ></input>
                             <button
                               type="submit"

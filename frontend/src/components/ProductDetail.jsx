@@ -96,7 +96,7 @@ const ProductDetail = () => {
             <div className="description mt-2 mb-4 text-[20px]" style={{color:"#919291"}} > {description} </div>
 
             <div className="price flex ">              
-              <div className="present-cost mr-2 font-bold" style={{fontSize:"42px", color:"#002D46"}}>&#8377;{price}</div>
+              <div className="present-cost mr-2 font-bold" style={{fontSize:"32px", color:"#002D46"}}>&#8377;{price}</div>
 
               <div className="oldPrice mr-2 my-auto flex" style={{color:"#919291"}}>
                 <div className="mrp my-auto">M.R.P: </div>
@@ -114,9 +114,29 @@ const ProductDetail = () => {
             </div>
 
             {/**Cart and buy */}
-            <div className="cartAndBuy flex flex-col lg:flex-row mb-14">
-              <button className='addCart flex-grow lg:mr-2 lg:mb-0 mb-2 font-bold py-4 px-4 rounded-lg border border-[#52B6AA]' style={{color:"#52B6AA"}}>Add to Cart</button>
-              <button className='buyNow shining-btn flex-grow  text-white font-bold py-4 px-4 rounded-lg border' style={{backgroundColor:"#52B6AA"}} >Buy Now</button>
+            <div style={{display:"flex", flexDirection:"row", gap:"20px"}} className="cartAndBuy flex flex-col lg:flex-row mb-14">
+            <button
+              className='button_cart1
+              relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+              px-4 py-2 font-semibold
+              uppercase transition-all duration-500
+              
+              before:absolute before:inset-0
+              before:-z-10 before:translate-x-[150%]
+              before:translate-y-[150%] before:scale-[2.5]
+              before:rounded-[100%] before:bg-SecondaryColor
+              before:transition-transform before:duration-1000
+              before:content-[""]
+
+              hover:scale-105 hover:text-PrimaryColor
+              hover:before:translate-x-[0%]
+              hover:before:translate-y-[0%]
+              active:scale-95'
+            >
+              
+              <span>Add To Cart</span>
+            </button>
+              <button className='button_cart1 buyNow shining-btn flex-grow  text-white font-bold py-4 px-4 rounded-lg border' style={{backgroundColor:"#52B6AA"}} >Buy Now</button>
             </div>
 
             {/**Facilities */}

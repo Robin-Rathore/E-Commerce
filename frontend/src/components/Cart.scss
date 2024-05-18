@@ -63,7 +63,7 @@
     font-weight: 600;
 }
 .text_In_Cart p:nth-child(2){
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
 }
 .buttonsCart{
@@ -75,7 +75,7 @@
     margin: 25px 0px;
 }
 .button_cart{
-    width: 50%;
+    width: 60%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,6 +88,7 @@
     font-family: "Mulish", sans-serif;
     outline: none;
     @include mobile(){
+        width: 60%;
         height: 45px;
     }
 }
