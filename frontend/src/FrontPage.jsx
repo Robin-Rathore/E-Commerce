@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Divider from "@mui/material/Divider";
 import IconsSection from './components/IconsSection';
 import AdvPage from './components/AdvPage';
+import VideoPage from './components/videoPage';
 const FrontPage = () => {
   return (
     <>
@@ -129,7 +130,9 @@ const FrontPage = () => {
         </div>
       </div>
       <hr className="w-full border-t border-gray-300 my-2" />
+    
 
+      <VideoPage/>
       <Footer/>
     </>
   )
