@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import Link from 'next/link'
 import Signup from './Signup'
 import google from "../images/google-icon.png"
@@ -6,17 +6,37 @@ import apple from "../images/apple-icon.png"
 import facebook from "../images/facebook-icon.png"
 import twitter from "../images/twitter-icon.png"
 import { LinkOff, LinkOutlined } from '@mui/icons-material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 
 const Login = () => {
+  const [email,setEmail] = useState("");
+  const [password,setPassword]=useState("");
+  const navigate = useNavigate();
+  const handleLogin = async(e)=>{
+    try {
+      e.preventDefault();
+      const {data} =await axios.post("http://localhost:8080/api/v1/user/login",{email,password})
+      if(data?.success){
+        if(data?.user?.role==0){
+          navigate("/user")
+        }else{
+          navigate("/admin")
+        }
+      }
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
     
 
     <div className="flex justify-center items-center ">
-        <div className="flex justify-center my-5 items-center bg-red-400" style={{ width: "550px" }}>
-          <form className="bg-white p-10 md:p-20 rounded shadow-lg w-full" style={{}} >
+        <div className="flex justify-center my-5 items-center bg-red-400 " style={{}}>
+          <form noValidate onSubmit={handleLogin} className="bg-white p-10 md:p-20 rounded shadow-lg" style={{}} >
 
             {/* Login*/}
             <h1 className="text-gray-800 font-bold text-3xl mb-5">Login</h1>{} 
@@ -52,6 +72,8 @@ const Login = () => {
                 required
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
                 type="email"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 placeholder="Email"
                 name="email"
                 // value={}
@@ -63,12 +85,16 @@ const Login = () => {
             {/** password-area */}
             <div className="relative mb-4">
               <input
+              type="password"
                 required
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
-                type="password"
+                // type={}
                 placeholder="Password"
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
                 name="password"
                 // value={}
+                
               />              
             </div>
  

@@ -10,6 +10,7 @@ import NewLaunches from './components/Pages/NewLaunches';
 import EarPhones from './components/Pages/EarPhones';
 import Speaker from './components/Pages/Speaker';
 import Accessories from './components/Pages/Accessories';
+import User from './components/User'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<FrontPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Signup/>} />
+            <Route exact path="/user" element={<User />} />
             <Route path="/ProductDetail" element={<ProductDetail/>} />
             <Route path="/bulkorder" element={<BulkOrderPage/>} />
             <Route path="/smartwatch" element={<SmartWatch/>} />

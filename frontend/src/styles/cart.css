@@ -1,0 +1,71 @@
+.box .cart .item{
+    margin: 15px 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.box .cart .item img{
+    height: 8vh;
+    border-radius: 50%;
+}
+
+
+
+.box .cart .updated .quantity{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.box .cart .updated .quantity p{
+    margin: 0px 7px;
+}
+
+.box .cart .updated .quantity .minus{
+    height: 2vh;
+    width: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(211, 205, 205);
+    border-radius: 50%;
+}
+.box .cart .updated .quantity .plus{
+    height: 2vh;
+    width: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(211, 205, 205);
+    border-radius: 50%;
+}
+
+.box footer{
+    position: fixed;
+    bottom: 30px;
+    margin: 0px 12px;
+}
+
+.box footer .price{
+    display: flex;
+    font-weight: 600;
+    justify-content: space-between;
+}
+
+.box footer .bottom h5{
+    margin-top: 8px;
+    font-size: 2vh;
+    font-weight: 300;
+} 
+
+
+.box footer .bottom button{
+    height: 7vh;
+    width: 100%;
+    background: rgba(0,185,170,255);
+    color: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}

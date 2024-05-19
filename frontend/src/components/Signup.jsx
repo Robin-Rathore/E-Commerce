@@ -1,19 +1,41 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { Link, useNavigate } from "react-router-dom";
 import google from "../images/google-icon.png"
 import apple from "../images/apple-icon.png"
 import facebook from "../images/facebook-icon.png"
 import twitter from "../images/twitter-icon.png"
+import axios from 'axios'
 
 
 const Signup = () => {
+  const [firstName,setFirstName] = useState("");
+  const [lastName,setLastName] = useState("");
+  const [password,setPassword] = useState("");
+  const [email,setEmail] = useState("");
+  const navigate = useNavigate()
+  const handleSubmit = async(e)=>{
+    try {
+      e.preventDefault();
+      const {data} = await axios.post("http://localhost:8080/api/v1/user/register",{firstName,lastName,email,password})
+      console.log(data?.user);
+      if(data?.success){
+        if(data?.user?.role==0){
+          navigate("/user");
+        }else{
+          navigate("/admin")
+        }
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <>
     
 
       <div className="flex justify-center items-center ">
         <div className="flex justify-center my-5 items-center bg-red-400" style={{}}>
-          <form className="bg-white p-10 md:p-20 rounded shadow-lg" style={{}}>
+          <form noValidate onSubmit={handleSubmit} className="bg-white p-10 md:p-20 rounded shadow-lg" style={{}}>
 
             {/* create account*/}
             <h1 className="text-gray-800 font-bold text-3xl mb-5">Create Account</h1>{} 
@@ -49,6 +71,8 @@ const Signup = () => {
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
                 // type={}
                 placeholder="First Name"
+                value={firstName}
+                onChange={(e)=>setFirstName(e.target.value)}
                 name="first-name"
                 // value={}
                 
@@ -63,6 +87,8 @@ const Signup = () => {
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
                 // type={}
                 placeholder="Last Name"
+                value={lastName}
+                onChange={(e)=>setLastName(e.target.value)}
                 name="last-name"
                 // value={}
                 
@@ -76,6 +102,8 @@ const Signup = () => {
                 required
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
                 type="email"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 placeholder="Email"
                 name="email"
                 // value={}
@@ -87,9 +115,12 @@ const Signup = () => {
             {/** password-area */}
             <div className="relative mb-4">
               <input
+              type="password"
                 required
                 className="w-full py-2 px-3 border border-gray-300 rounded-lg"
-                type="password"
+                // type={}
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
                 placeholder="Password"
                 name="password"
                 // value={}
@@ -99,12 +130,9 @@ const Signup = () => {
 
 
             {/**Create accnt button*/}
-            <div className="createAcc">
-              <button  className="w-full py-2 rounded-lg text-white font-semibold mb-0 mt-5 shining-btn" style={{ backgroundColor: "#52B6AA" }}>
-                Create Account
-              </button>
-            </div>
-            
+            <button type='submit' className="w-full py-2 rounded-lg text-white font-semibold mb-0 mt-5 shining-btn" style={{ backgroundColor: "#52B6AA" }}>
+              Create Account
+            </button>
 
           </form>
         </div>

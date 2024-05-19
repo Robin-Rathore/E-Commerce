@@ -1,0 +1,75 @@
+.main{
+    width:40% ;
+    margin: auto;
+
+}
+
+.main .top p{
+    border-bottom: 1px solid rgb(152, 144, 144);
+}
+
+.main .orders .empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.main .orders .empty img{
+    height: 25vh;
+    width: 25vh;
+}
+
+
+
+.main .orders .empty .write{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vh;
+}
+
+.main .orders .empty .write span{
+    color: gray;
+    font-weight: 400;
+}
+
+.main .orders .empty  button{
+    margin-top: 2vh;
+    display: inline-block;
+    background: rgba(0,185,170,255);
+    color: white;
+    width: 80%;
+    border-radius: 8px;
+    height: 6vh;
+    
+}
+
+.main hr{
+    margin-top: 15px;
+    color: rgb(172, 171, 171);
+    margin-bottom: 15px;
+}
+
+
+.main .user{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.main .user h1{
+    font-weight:700;
+}
+
+.main .user .top-user{
+    font-weight: 300;
+}
+.main .user .bottom{
+    font-weight: 300;
+}
+
+.main .user h6 {
+    font-size: 2vh;
+}
