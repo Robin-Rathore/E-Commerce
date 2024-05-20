@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.15.17",
     "@mui/material": "^5.15.17",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
+    "antd": "^5.17.3",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
     "clsx": "^2.1.1",

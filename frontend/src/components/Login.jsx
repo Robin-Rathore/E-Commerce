@@ -8,6 +8,7 @@ import twitter from "../images/twitter-icon.png"
 import { LinkOff, LinkOutlined } from '@mui/icons-material'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import Header from './Header'
 
 
 const Login = () => {
@@ -33,7 +34,7 @@ const Login = () => {
   return (
     <>
     
-
+    <Header/>
     <div className="flex justify-center items-center ">
         <div className="flex justify-center my-5 items-center bg-red-400 " style={{}}>
           <form noValidate onSubmit={handleLogin} className="bg-white p-10 md:p-20 rounded shadow-lg" style={{}} >

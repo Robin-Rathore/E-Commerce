@@ -1,50 +1,64 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './ProductDetail.css';
 
 import data from './data'
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const ProductDetail = () => {
   
-  const product = data[0].products[0];
-  
-  const { id,
-    name,
-    img1,
-    img2,
-    img3, 
-    description ,
-    category,
-    price,
-    oldprice,
-    discount, 
-    colour, 
-    ModelNumber,
-    GenericProductName ,
-    ScreenSize,
-    Type               ,
-    DialShape          ,
-    StrapMaterial      ,
-    StrapSize          ,
-    DisplayType        ,
-    Charging           ,
-    BatteryCapacity    ,
-    BluetoothVersion   ,
-    BatteryAverageLife ,
-    WaterResistance    ,
-    DialMaterial       ,
-    Health             ,
-    Notification       ,
-    SportsMode         ,
-    VoiceAssistance    ,
-    CompatibleOS       ,
-    WatchFaces         ,
-    OtherFeatures      ,
-    Dimension          ,
-    Weight             ,
-    OriginOfCountry    ,
-    ImportedMarketedBy} = product;
+  const [product,setProduct] = useState();
+  const params = useParams();
+  const id = params.id;
 
-  const [mainImg, setmainImg] = useState(img1);
+  const getProduct = async () => {
+    const {data} = await axios.get(
+      `http://localhost:8080/api/v1/product/getProduct/${id}`
+    );
+    setProduct(data?.product)
+  };
+  useEffect(() => {
+    getProduct();
+  }, [id]);
+
+  // const { 
+  //   name,
+  //   img1,
+  //   img2,
+  //   img3, 
+  //   description ,
+  //   category,
+  //   price,
+  //   oldprice,
+  //   discount, 
+  //   colour, 
+  //   ModelNumber,
+  //   GenericProductName ,
+  //   ScreenSize,
+  //   Type               ,
+  //   DialShape          ,
+  //   StrapMaterial      ,
+  //   StrapSize          ,
+  //   DisplayType        ,
+  //   Charging           ,
+  //   BatteryCapacity    ,
+  //   BluetoothVersion   ,
+  //   BatteryAverageLife ,
+  //   WaterResistance    ,
+  //   DialMaterial       ,
+  //   Health             ,
+  //   Notification       ,
+  //   SportsMode         ,
+  //   VoiceAssistance    ,
+  //   CompatibleOS       ,
+  //   WatchFaces         ,
+  //   OtherFeatures      ,
+  //   Dimension          ,
+  //   Weight             ,
+  //   OriginOfCountry    ,
+  //   ImportedMarketedBy} = product;
+
+  const [mainImg, setmainImg] = useState(product?.images[0]);
   const [fade, setfade] = useState(false);
 
   const handleImageClick = (newImg) => {
@@ -57,60 +71,61 @@ const ProductDetail = () => {
   
 
   return (
+    
     <>
       <section className='pt-8 lg:py-16 lg:h-screen pl-4 pr-4 pb-[30px]' >
         <div className='container mx-auto flex flex-col lg:flex-row'>
           <div className="lg:w-1/2">
             <div className="productImage flex items-center justify-center lg:justify-start border-2 border-gray-100 rounded-lg  ${fade ? 'fade-out' : ''}`}">
-              <img className= {`w-full max-w-full lg:max-w-[600px] rounded-lg ${fade ? 'fade-out' : ''}`} src={mainImg} alt="Product"  />
+              <img className= {`w-full max-w-full lg:max-w-[600px] rounded-lg ${fade ? 'fade-out' : ''}`} src={`http://localhost:8080/${product?.images[0]}`} alt="Product"  />
             </div>            
 
             <div className="sub-images flex flex-wrap mt-4 justify-center">
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"} }
-                  src={img1}
+                  src={`http://localhost:8080/${product?.images[0]}`}
                   alt="Product" 
-                  onClick={()=>handleImageClick(img1)}
+                  onClick={()=>handleImageClick(product?.images[0])}
               />
 
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"}}
-                  src={img2}
+                  src={`http://localhost:8080/${product?.images[1]}`}
                   alt="Product" 
-                  onClick={()=>handleImageClick(img2)}
+                  onClick={()=>handleImageClick(product?.images[1])}
               />
 
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"}}
-                  src={img3}
+                  src={`http://localhost:8080/${product?.images[2]}`}
                   alt="Product" 
-                  onClick={()=>handleImageClick(img3)}
+                  onClick={()=>handleImageClick(product?.images[2])}
               />
             </div>
           </div>
 
 
           <div className="lg:w-1/2 mt-8 lg:mt-0 lg:ml-8">
-            <div className="productName mb-2 font-bold text-[50px]   mb-2 max-w-[460px] mx-auto lg:mx-0 lg:my-0" style={{color:"#002D46"}}> {name} </div>
+            <div className="productName mb-2 font-bold text-[50px]   mb-2 max-w-[460px] mx-auto lg:mx-0 lg:my-0" style={{color:"#002D46"}}> {product?.name} </div>
 
-            <div className="description mt-2 mb-4 text-[20px]" style={{color:"#919291"}} > {description} </div>
+            <div className="description mt-2 mb-4 text-[20px]" style={{color:"#919291"}} > {product?.description} </div>
 
             <div className="price flex ">              
-              <div className="present-cost mr-2 font-bold" style={{fontSize:"32px", color:"#002D46"}}>&#8377;{price}</div>
+              <div className="present-cost mr-2 font-bold" style={{fontSize:"32px", color:"#002D46"}}>&#8377;{product?.discount}</div>
 
               <div className="oldPrice mr-2 my-auto flex" style={{color:"#919291"}}>
                 <div className="mrp my-auto">M.R.P: </div>
-                <div className="old my-auto" style={{textDecoration: "line-through"}}>&#8377;{oldprice}</div>
+                <div className="old my-auto" style={{textDecoration: "line-through"}}>&#8377;{product?.price}</div>
               </div>
 
-              <div className="discount mr-2 my-auto font-bold" style={{color:"#FF6D5C"}}> {'('}{discount}{')'} </div>
+              <div className="discount mr-2 my-auto font-bold" style={{color:"#FF6D5C"}}> {'('}{product?.discount}{')'} </div>
             </div>
 
             <div className="alltax text-sm mb-5" style={{ marginTop: "-0.5rem",color:"#002D46" }}>Inclusive of all taxes</div>
 
             <div className="colour-detail flex text-[25px] mb-6">
               <div className="colour-type" style={{color:"#919291"}}>Colour - </div>
-              <div className="colour ml-2" style={{color:"#FF6D5C"}}> { colour}</div>
+              <div className="colour ml-2" style={{color:"#FF6D5C"}}> { product?.color}</div>
             </div>
 
             {/**Cart and buy */}
@@ -196,104 +211,49 @@ const ProductDetail = () => {
               <ul>
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Product Name:</strong>
-                  <span className="w-[65%] lg:w-[80%]">{ModelNumber}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.model}</span>
                 </li>
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Generic Product Name :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{GenericProductName}</span>                
+                  <span className="w-[65%] lg:w-[80%]">{product?.category}</span>                
                 </li>
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Screen Size :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{ScreenSize}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.screenSize}</span>
                 </li>
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Type :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{Type}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.type}</span>
                 </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Dial Shape :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{DialShape}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Strap Material :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{StrapMaterial}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Strap Size :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{StrapSize}</span>
-                </li>
+                
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Display Type :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{DisplayType}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.displayType}</span>
                 </li>
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Charging :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{Charging}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.charging}</span>
                 </li>
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Battery Capacity :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{BatteryCapacity}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.battery}</span>
                 </li>
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Bluetooth Version :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{BluetoothVersion}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.bluetoothVersion}</span>
                 </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Battery Average Life :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{BatteryAverageLife}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Water Resistance :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{WaterResistance}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Dial Material :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{DialMaterial}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Health :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{Health}</span>
-                </li>
+                
+                
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Notification :</strong>
                   <span className="w-[65%] lg:w-[80%]">{Notification}</span>
                 </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Sports Mode :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{SportsMode}</span>
-                </li>
+                
                 <li className="flex justify-between mb-2">
                   <strong className="w-[35%] lg:w-[20%] text-gray-500">Voice Assistance :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{VoiceAssistance}</span>
+                  <span className="w-[65%] lg:w-[80%]">{product?.voiceAssistance}</span>
                 </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Compatible OS :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{CompatibleOS}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Watch Faces :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{WatchFaces}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Other Features :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{OtherFeatures}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Dimension :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{Dimension}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Weight :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{Weight}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Origin Of Country :</strong>
-                  <span className="w-[65%] lg:w-[80%]">{OriginOfCountry}</span>
-                </li>
-                <li className="flex justify-between mb-2">
-                  <strong className="w-[35%] lg:w-[20%] text-gray-500">Imported &amp; Marketed By:</strong>
-                  <span className="w-[65%] lg:w-[80%]">{ImportedMarketedBy}</span>
-                </li>
+                
               </ul>
             </div>           
           </div>

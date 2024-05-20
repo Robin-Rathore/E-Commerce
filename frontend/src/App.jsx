@@ -11,6 +11,8 @@ import EarPhones from './components/Pages/EarPhones';
 import Speaker from './components/Pages/Speaker';
 import Accessories from './components/Pages/Accessories';
 import User from './components/User'
+import Admin from './components/Admin';
+import AddProduct from './components/Pages/AddProduct';
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
           <Routes>
             <Route path="/" element={<FrontPage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/addProducts" element={<AddProduct />} />
             <Route path="/register" element={<Signup/>} />
             <Route exact path="/user" element={<User />} />
-            <Route path="/ProductDetail" element={<ProductDetail/>} />
+            <Route path="/ProductDetail/:id" element={<ProductDetail/>} />
             <Route path="/bulkorder" element={<BulkOrderPage/>} />
             <Route path="/smartwatch" element={<SmartWatch/>} />
             <Route path="/newlaunches" element={<NewLaunches/>} />

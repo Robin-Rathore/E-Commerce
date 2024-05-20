@@ -5,6 +5,7 @@ import apple from "../images/apple-icon.png"
 import facebook from "../images/facebook-icon.png"
 import twitter from "../images/twitter-icon.png"
 import axios from 'axios'
+import Header from './Header';
 
 
 const Signup = () => {
@@ -31,7 +32,7 @@ const Signup = () => {
   }
   return (
     <>
-    
+    <Header/>
 
       <div className="flex justify-center items-center ">
         <div className="flex justify-center my-5 items-center bg-red-400" style={{}}>

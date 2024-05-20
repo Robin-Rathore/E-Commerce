@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AdvPage.scss";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import axios from "axios";
 // const DrawOutlineButton = ({ children, ...rest }) => {
 
 //   return (
@@ -40,7 +40,23 @@ import "aos/dist/aos.css";
 // };
 
 const AdvPage = () => {
+  const [product, setProduct] = useState();
   const [num, setNum] = useState(1);
+  const getProduct = async () => {
+    try {
+      const  {data} = await axios.get(
+        "http://localhost:8080/api/v1/frontProduct/get"
+      );
+      setProduct(data?.products[0])
+      console.log(product?.photo1)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getProduct();
+  }, []);
+
   useEffect(() => {
     AOS.init({
       offset: 10,
@@ -49,71 +65,69 @@ const AdvPage = () => {
   }, []);
   return (
     <div className="main_wrapper">
-      <div className="wrapper">
-        <div className="right_wrapper">
-          <div className="images">
-            <div data-aos="zoom-in" className="image_item">
-              <img
-                src="https://www.shutterstock.com/image-photo/white-wireless-headphones-no-background-600nw-2071692311.jpg"
-                alt=""
-              />
-            </div>
-            <div data-aos="zoom-in-left" className="image_item">
-              <img
-                src="https://img.myipadbox.com/sec/product_l/TBD0602356301B.jpg"
-                alt=""
-              />
-            </div>
-            <div data-aos="zoom-in-down" className="image_item">
-              <img
-                src="https://rukminim2.flixcart.com/image/850/1000/xif0q/smartwatch/o/c/e/34-oq18-android-ios-parmarorama-yes-original-imagtdfk4cqdgyag.jpeg?q=90&crop=false"
-                alt=""
-              />
-            </div>
-            <div data-aos="zoom-in-right" className="image_item">
-              <img
-                src="https://rukminim2.flixcart.com/image/850/1000/xif0q/smartwatch/o/c/e/34-oq18-android-ios-parmarorama-yes-original-imagtdfk4cqdgyag.jpeg?q=90&crop=false"
-                alt=""
-              />
+      {product ? (
+        <div className="wrapper">
+          <div className="right_wrapper">
+            <div className="images">
+              <div data-aos="zoom-in" className="image_item">
+                <img src={product[0]?.photo1} alt="" />
+              </div>
+              <div data-aos="zoom-in-left" className="image_item">
+                <img
+                  src="https://img.myipadbox.com/sec/product_l/TBD0602356301B.jpg"
+                  alt=""
+                />
+              </div>
+              <div data-aos="zoom-in-down" className="image_item">
+                <img
+                  src="https://rukminim2.flixcart.com/image/850/1000/xif0q/smartwatch/o/c/e/34-oq18-android-ios-parmarorama-yes-original-imagtdfk4cqdgyag.jpeg?q=90&crop=false"
+                  alt=""
+                />
+              </div>
+              <div data-aos="zoom-in-right" className="image_item">
+                <img
+                  src="https://rukminim2.flixcart.com/image/850/1000/xif0q/smartwatch/o/c/e/34-oq18-android-ios-parmarorama-yes-original-imagtdfk4cqdgyag.jpeg?q=90&crop=false"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className="left_wrapper">
-          <div className="product_info">
-            <div className="product_title">
-              <h2>Pebble Blissbuds Ultra</h2>
-            </div>
-            <div className="price">
-              <p className="main_price">₹ 1,799</p>
-              <p className="fake_price">
-                M.R.P : <s>₹ 6,999</s>
-              </p>
-              <p className="discount">(75% Off)</p>
-              <button className="sale_button">SALE</button>
-            </div>
-            <div className="quantity">
-              <button
-                className="quantity_button"
-                onClick={() => setNum(num > 1 ? num - 1 : num)}
-              >
-                -
-              </button>
-              <input
-                className="quantity_input"
-                type="number"
-                min={"1"}
-                value={num}
-              ></input>
-              <button
-                className="quantity_button"
-                onClick={() => setNum(num + 1)}
-              >
-                +
-              </button>
-            </div>
-            <div className="add_to_cart_button">
-              <button
-                className='button_cart1
+          <div className="left_wrapper">
+            <div className="product_info">
+              <div className="product_title">
+                <h2>Pebble Blissbuds Ultra</h2>
+              </div>
+              <div className="price">
+                <p className="main_price">₹ 1,799</p>
+                <p className="fake_price">
+                  M.R.P : <s>₹ 6,999</s>
+                </p>
+                <p className="discount">(75% Off)</p>
+                <button className="sale_button">SALE</button>
+              </div>
+              <div className="quantity">
+                <button
+                  className="quantity_button"
+                  onClick={() => setNum(num > 1 ? num - 1 : num)}
+                >
+                  -
+                </button>
+                <input
+                  className="quantity_input"
+                  type="number"
+                  min={"1"}
+                  value={num}
+                ></input>
+                <button
+                  className="quantity_button"
+                  onClick={() => setNum(num + 1)}
+                >
+                  +
+                </button>
+              </div>
+              <div className="add_to_cart_button">
+                <button
+                  className='button_cart1
        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
         px-4 py-2 font-semibold
        uppercase transition-all duration-500
@@ -129,13 +143,13 @@ const AdvPage = () => {
        hover:before:translate-x-[0%]
        hover:before:translate-y-[0%]
        active:scale-95'
-              >
-                <span>Add To Cart</span>
-              </button>
-            </div>
-            <div className="buy_it_now_button">
-              <button
-                className='button_cart1
+                >
+                  <span>Add To Cart</span>
+                </button>
+              </div>
+              <div className="buy_it_now_button">
+                <button
+                  className='button_cart1
        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
         px-4 py-2 font-semibold
        uppercase transition-all duration-500
@@ -151,14 +165,16 @@ const AdvPage = () => {
        hover:before:translate-x-[0%]
        hover:before:translate-y-[0%]
        active:scale-95'
-              >
-                <span>Buy Now</span>
-              </button>
-              {/* <DrawOutlineButton>Hover me</DrawOutlineButton> */}
+                >
+                  <span>Buy Now</span>
+                </button>
+                {/* <DrawOutlineButton>Hover me</DrawOutlineButton> */}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ):( <h1>...loading</h1> )
+    }
     </div>
   );
 };

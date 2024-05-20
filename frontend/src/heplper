@@ -1,0 +1,98 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const AdminInfo = () => {
+  const [name, setName] = useState("");
+  const [images, setImages] = useState([]);
+  const [imagePreviews, setImagePreviews] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+      const fetchProducts = async () => {
+          try {
+              const res = await axios.get('http://localhost:8080/api/v1/frontProduct/getProducts');
+              setProducts(res.data);
+          } catch (error) {
+              console.error('Error fetching products:', error);
+          }
+      };
+
+      fetchProducts();
+  }, []);
+
+
+  const handleImageChange = (e) => {
+    const files = Array.from(e.target.files);
+     const newPreviews = files.map(file => URL.createObjectURL(file));
+     setImages(prevImages => [...prevImages, ...files]);
+    setImagePreviews(prevPreviews => [...prevPreviews, ...newPreviews]);
+
+    console.log('Selected files:', files); // Log selected files
+    // Loop through files and log each one
+    for (let i = 0; i < files.length; i++) {
+        console.log(`File ${i + 1}:`, files[i]);
+    }
+};
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name', name);
+    for (let i = 0; i < images.length; i++) {
+        formData.append('images', images[i]);
+    }
+
+    // Log FormData entries for debugging
+    for (let pair of formData.entries()) {
+        console.log(pair[0] + ':', pair[1]);
+    }
+
+    try {
+        const res = await axios.post('http://localhost:8080/api/v1/frontProduct/addProduct', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        console.log(res.data);
+    } catch (error) {
+        console.error('Error uploading images:', error);
+    }
+};
+
+  return (<>
+    <div>
+            <h1>Product List</h1>
+            {products.map((product) => (
+                <div key={product._id}>
+                    <h2>{product.name}</h2>
+                    <div>
+                        {product.images.map((image, index) => (
+                            <img key={index} src={`http://localhost:8080/${image}`} alt={`Product ${index + 1}`} style={{ width: '100px', height: '100px', margin: '10px' }} />
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        //
+    <form onSubmit={handleSubmit}>
+            <div>
+                <label>Product Name:</label>
+                <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+            </div>
+            <div>
+                <label>Product Images:</label>
+                <input type="file" multiple onChange={handleImageChange} required />
+            </div>
+            <div>
+                {imagePreviews.map((src, index) => (
+                    <img key={index} src={src} alt={`Preview ${index + 1}`} style={{ width: '100px', height: '100px', margin: '10px' }} />
+                ))}
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
+                </>
+  );
+};
+
+export default AdminInfo;
