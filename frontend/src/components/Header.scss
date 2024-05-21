@@ -1,5 +1,5 @@
 @mixin mobile {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 520px) {
       @content;
     }
   }
@@ -46,14 +46,12 @@
         max-width: 174px;
         padding: 39px 0px 0px 6px;
         @include mobile(){
-            max-width: 170px !important;
-            margin: -32px 8px -6px 0px;
-            box-sizing: border-box;
-            object-fit: cover;
-            flex: 3;
-            position: relative;
-            left: -35px;
-            top: 10px;
+            
+        }
+    }
+    .header-left img{
+        @include mobile(){
+        display: none;
         }
     }
     
@@ -123,7 +121,7 @@
         justify-content: center;
         flex: 2;
         @include mobile(){
-            gap: 1.5rem;
+            // gap: 1.5rem;
         }
     }
 }

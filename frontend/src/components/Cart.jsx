@@ -4,24 +4,16 @@ import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Button from "@mui/material/Button";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import cart from "../images/cart.png";
 import CloseIcon from "@mui/icons-material/Close";
 import "./Cart.scss";
 import { Close } from "@mui/icons-material";
 import "../styles/cart.css";
 import watch3 from "../images/watch3.jpg";
-const Cart = () => {
-  const [state, setState] = React.useState({
-    right: false,
-  });
+import { Link } from "react-router-dom";
 
-  const [items, setItems] = React.useState([]);
+const CartComponent = () => {
+  const [state, setState] = React.useState({ right: false });
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -35,7 +27,7 @@ const Cart = () => {
     setState({ ...state, [anchor]: open });
   };
 
-  const list = (anchor) => (
+  const list = (anchor, items) => (
     <div className="Cart-Area">
       <div className="top">
         <div className="title">Your Cart</div>
@@ -43,7 +35,7 @@ const Cart = () => {
           <CloseIcon />{" "}
         </Button>
       </div>
-      {items ? (
+      {!items ? (
         <>
           <div className="box">
             <hr />
@@ -77,7 +69,7 @@ const Cart = () => {
                   Inclusive of all taxes. Discount codes will be applied at
                   checkout page
                 </h5>
-                <button>Place Order ₹2,299 </button>
+                <button>Place Order ₹2,299</button>
               </div>
             </footer>
           </div>
@@ -103,49 +95,208 @@ const Cart = () => {
               </p>
             </div>
           </Box>
+
           <div className="buttonsCart">
-            <button
-              className='button_cart
-        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
-         px-4 py-2 font-semibold
-        uppercase transition-all duration-500
-        
-        before:absolute before:inset-0
-        before:-z-10 before:translate-x-[150%]
-        before:translate-y-[150%] before:scale-[2.5]
-        before:rounded-[100%] before:bg-SecondaryColor
-        before:transition-transform before:duration-1000
-        before:content-[""]
-
-        hover:scale-105 hover:text-PrimaryColor
-        hover:before:translate-x-[0%]
-        hover:before:translate-y-[0%]
-        active:scale-95'
+            <Link
+              style={{
+                display: "inline-block",
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/smartwatch"}
             >
-              <span>smart watches</span>
-            </button>
-            <button
-              className='button_cart
-        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
-         px-4 py-2 font-semibold
-        uppercase transition-all duration-500
-        
-        before:absolute before:inset-0
-        before:-z-10 before:translate-x-[150%]
-        before:translate-y-[150%] before:scale-[2.5]
-        before:rounded-[100%] before:bg-SecondaryColor
-        before:transition-transform before:duration-1000
-        before:content-[""]
+              <button
+                className='button_cart2
+                  relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+                    px-4 py-2 font-semibold
+                  uppercase transition-all duration-500
+                  
+                  before:absolute before:inset-0
+                  before:-z-10 before:translate-x-[150%]
+                  before:translate-y-[150%] before:scale-[2.5]
+                  before:rounded-[100%] before:bg-SecondaryColor
+                  before:transition-transform before:duration-1000
+                  before:content-[""]
 
-        hover:scale-105 hover:text-PrimaryColor
-        hover:before:translate-x-[0%]
-        hover:before:translate-y-[0%]
-        active:scale-95'
+                  hover:scale-105 hover:text-PrimaryColor
+                  hover:before:translate-x-[0%]
+                  hover:before:translate-y-[0%]
+                  active:scale-95'
+                          >
+                <span>Smart Watches</span>
+              </button>
+            </Link>
+            <Link
+              style={{
+                display: "inline-block",
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/newlaunches"}
             >
-              <span>new launches</span>
-            </button>
+              <button
+                className='button_cart2
+       relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+        px-4 py-2 font-semibold
+       uppercase transition-all duration-500
+       
+       before:absolute before:inset-0
+       before:-z-10 before:translate-x-[150%]
+       before:translate-y-[150%] before:scale-[2.5]
+       before:rounded-[100%] before:bg-SecondaryColor
+       before:transition-transform before:duration-1000
+       before:content-[""]
+
+       hover:scale-105 hover:text-PrimaryColor
+       hover:before:translate-x-[0%]
+       hover:before:translate-y-[0%]
+       active:scale-95'
+              >
+                <span>New Launches</span>
+              </button>
+            </Link>
+            <Link
+              style={{
+                display: "inline-block",
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/earphones"}
+            >
+              <button
+                className='button_cart2
+       relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+        px-4 py-2 font-semibold
+       uppercase transition-all duration-500
+       
+       before:absolute before:inset-0
+       before:-z-10 before:translate-x-[150%]
+       before:translate-y-[150%] before:scale-[2.5]
+       before:rounded-[100%] before:bg-SecondaryColor
+       before:transition-transform before:duration-1000
+       before:content-[""]
+
+       hover:scale-105 hover:text-PrimaryColor
+       hover:before:translate-x-[0%]
+       hover:before:translate-y-[0%]
+       active:scale-95'
+              >
+                <span>Earphones</span>
+              </button>
+            </Link>
+            <Link
+              style={{
+                display: "inline-block",
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/speakers"}
+            >
+              <button
+                className='button_cart2
+       relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+        px-4 py-2 font-semibold
+       uppercase transition-all duration-500
+       
+       before:absolute before:inset-0
+       before:-z-10 before:translate-x-[150%]
+       before:translate-y-[150%] before:scale-[2.5]
+       before:rounded-[100%] before:bg-SecondaryColor
+       before:transition-transform before:duration-1000
+       before:content-[""]
+
+       hover:scale-105 hover:text-PrimaryColor
+       hover:before:translate-x-[0%]
+       hover:before:translate-y-[0%]
+       active:scale-95'
+              >
+                <span>Speakers</span>
+              </button>
+            </Link>
+            <Link
+              style={{
+                display: "inline-block",
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/accessories"}
+            >
+              <button
+                className='button_cart2
+       relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+        px-4 py-2 font-semibold
+       uppercase transition-all duration-500
+       
+       before:absolute before:inset-0
+       before:-z-10 before:translate-x-[150%]
+       before:translate-y-[150%] before:scale-[2.5]
+       before:rounded-[100%] before:bg-SecondaryColor
+       before:transition-transform before:duration-1000
+       before:content-[""]
+
+       hover:scale-105 hover:text-PrimaryColor
+       hover:before:translate-x-[0%]
+       hover:before:translate-y-[0%]
+       active:scale-95'
+              >
+                <span>Accessories</span>
+              </button>
+            </Link>
+            <Link
+              style={{
+                display: "inline-block",
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/bulkorder"}
+            >
+              <button
+                className='button_cart2
+       relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+        px-4 py-2 font-semibold
+       uppercase transition-all duration-500
+       
+       before:absolute before:inset-0
+       before:-z-10 before:translate-x-[150%]
+       before:translate-y-[150%] before:scale-[2.5]
+       before:rounded-[100%] before:bg-SecondaryColor
+       before:transition-transform before:duration-1000
+       before:content-[""]
+
+       hover:scale-105 hover:text-PrimaryColor
+       hover:before:translate-x-[0%]
+       hover:before:translate-y-[0%]
+       active:scale-95'
+              >
+                <span>Bulk Order</span>
+              </button>
+            </Link>
             <button
-              className='button_cart
+              className='button_cart2
        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
         px-4 py-2 font-semibold
        uppercase transition-all duration-500
@@ -162,87 +313,7 @@ const Cart = () => {
        hover:before:translate-y-[0%]
        active:scale-95'
             >
-              <span>earphones</span>
-            </button>
-            <button
-              className='button_cart
-        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
-         px-4 py-2 font-semibold
-        uppercase transition-all duration-500
-        
-        before:absolute before:inset-0
-        before:-z-10 before:translate-x-[150%]
-        before:translate-y-[150%] before:scale-[2.5]
-        before:rounded-[100%] before:bg-SecondaryColor
-        before:transition-transform before:duration-1000
-        before:content-[""]
-
-        hover:scale-105 hover:text-PrimaryColor
-        hover:before:translate-x-[0%]
-        hover:before:translate-y-[0%]
-        active:scale-95'
-            >
-              <span>speakers</span>
-            </button>
-            <button
-              className='button_cart
-        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
-         px-4 py-2 font-semibold
-        uppercase transition-all duration-500
-        
-        before:absolute before:inset-0
-        before:-z-10 before:translate-x-[150%]
-        before:translate-y-[150%] before:scale-[2.5]
-        before:rounded-[100%] before:bg-SecondaryColor
-        before:transition-transform before:duration-1000
-        before:content-[""]
-
-        hover:scale-105 hover:text-PrimaryColor
-        hover:before:translate-x-[0%]
-        hover:before:translate-y-[0%]
-        active:scale-95'
-            >
-              <span>accessories</span>
-            </button>
-            <button
-              className='button_cart
-        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
-         px-4 py-2 font-semibold
-        uppercase transition-all duration-500
-        
-        before:absolute before:inset-0
-        before:-z-10 before:translate-x-[150%]
-        before:translate-y-[150%] before:scale-[2.5]
-        before:rounded-[100%] before:bg-SecondaryColor
-        before:transition-transform before:duration-1000
-        before:content-[""]
-
-        hover:scale-105 hover:text-PrimaryColor
-        hover:before:translate-x-[0%]
-        hover:before:translate-y-[0%]
-        active:scale-95'
-            >
-              <span>bulk order</span>
-            </button>
-            <button
-              className='button_cart
-       relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
-        px-4 py-2 font-semibold
-       uppercase transition-all duration-500
-       
-       before:absolute before:inset-0
-       before:-z-10 before:translate-x-[150%]
-       before:translate-y-[150%] before:scale-[2.5]
-       before:rounded-[100%] before:bg-SecondaryColor
-       before:transition-transform before:duration-1000
-       before:content-[""]
-
-       hover:scale-105 hover:text-PrimaryColor
-       hover:before:translate-x-[0%]
-       hover:before:translate-y-[0%]
-       active:scale-95'
-            >
-              <span>blogs</span>
+              <span>Blogs</span>
             </button>
           </div>
         </>
@@ -254,22 +325,13 @@ const Cart = () => {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button
-            className="toggle_button"
-            onClick={toggleDrawer(anchor, true)}
-          >
-            <a className="w-6 h-6 search-icon hover:w-6.5 h-6.5 hover:transform hover:scale-110 transition-transform duration-500 ease-in-out">
-              <img src={cart} alt="cart" />
-            </a>
-          </Button>
-          {/* <img onClick={toggleDrawer(anchor, true)} src={cart} alt='Cart'></img> */}
+          <Button style={{minWidth:"45px"}} className="button1" onClick={toggleDrawer(anchor, true)}><img src={cart}></img></Button>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
-            onOpen={toggleDrawer(anchor, true)}
           >
-            {list(anchor)}
+            {list(anchor, true)}
           </SwipeableDrawer>
         </React.Fragment>
       ))}
@@ -277,4 +339,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartComponent;

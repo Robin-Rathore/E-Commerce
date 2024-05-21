@@ -6,12 +6,17 @@ import Divider from "@mui/material/Divider";
 import IconsSection from './components/IconsSection';
 import AdvPage from './components/AdvPage';
 import VideoPage from './components/videoPage';
+import Slideshow from './components/Sideshow';
+import Card from './components/Card';
+import ProductCard from './components/ProductCard';
 const FrontPage = () => {
   return (
     <>
       <Header/>
       <TopSlider/>
-      {/* <Carousel/> */}
+      <Slideshow/>
+      <Card/>
+      {/* <ProductCard/> */}
       {/* <Divider style={{marginTop:"20px"}}/> */}
       <IconsSection/>
       <AdvPage/>

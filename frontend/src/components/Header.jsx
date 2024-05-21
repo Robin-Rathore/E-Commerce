@@ -74,7 +74,7 @@ const Header = () => {
                       href="/collections/new-launches"
                       className="header__menu-item header__menu-item--top list-menu__item focus-inset"
                     >
-                      <Link to={"./newlaunches"}>
+                      <Link to={"/newlaunches"}>
                         <FlyoutLink>
                           <span className="label">NEW LAUNCHES</span>
                         </FlyoutLink>
@@ -88,7 +88,7 @@ const Header = () => {
                       href="/collections/headphones-1"
                       className="header__menu-item header__menu-item--top list-menu__item focus-inset"
                     >
-                      <Link to={"./earphones"}>
+                      <Link to={"/earphones"}>
                         {" "}
                         <FlyoutLink>
                           <span className="label">EARPHONES</span>
@@ -103,7 +103,7 @@ const Header = () => {
                       href="/collections/speaker"
                       className="header__menu-item header__menu-item--top list-menu__item focus-inset"
                     >
-                      <Link to={"./speakers"}>
+                      <Link to={"/speakers"}>
                         {" "}
                         <FlyoutLink>
                           <span className="label">SPEAKERS</span>
@@ -118,7 +118,7 @@ const Header = () => {
                       href="/collections/accessories-1"
                       className="header__menu-item header__menu-item--top list-menu__item focus-inset"
                     >
-                      <Link to={"./accessories"}>
+                      <Link to={"/accessories"}>
                         <FlyoutLink>
                           <span className="label">ACCESSORIES</span>
                         </FlyoutLink>

@@ -46,12 +46,7 @@ const Footer = () => {
 
                   <div className="footer-block__details-content footer-block-image left">
                     <a href="/" aria-label="Home">
-                      <img
-                        srcset="//www.pebblecart.com/cdn/shop/files/Asset_1_4x-8_e1bae8a2-9db3-4243-8ba0-a7b1422cb3eb.png?v=1665584543&amp;width=200, //www.pebblecart.com/cdn/shop/files/Asset_1_4x-8_e1bae8a2-9db3-4243-8ba0-a7b1422cb3eb.png?v=1665584543&amp;width=400 2x"
-                        src="//www.pebblecart.com/cdn/shop/files/Asset_1_4x-8_e1bae8a2-9db3-4243-8ba0-a7b1422cb3eb.png?v=1665584543&amp;width=200"
-                        alt=""
-                        loading="lazy"
-                      />
+                      <h1 style={{fontSize:"23px", color:"#00b9aa"}}>Electronic Junction</h1>
                     </a>
                     <p className="caption-large">
                       Since inception in 2022, there has been one principle that

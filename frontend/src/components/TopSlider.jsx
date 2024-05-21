@@ -11,7 +11,7 @@ const Boundary = styled.div`
     width: 100vw;
     overflow: hidden;
     z-index: -1;
-    @media (max-width: 480px) {
+    @media (max-width: 520px) {
         position: absolute;
         top : 0;
         z-index: 9;

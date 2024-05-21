@@ -1,5 +1,5 @@
 @mixin mobile {
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 520px) {
       @content;
     }
   }
@@ -71,10 +71,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 30px;
     margin: 25px 0px;
 }
-.button_cart{
+.button_cart2{
     width: 60%;
     display: flex;
     align-items: center;

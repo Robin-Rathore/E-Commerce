@@ -1,0 +1,331 @@
+@mixin mobile {
+  @media screen and (max-width: 520px) {
+    @content;
+  }
+}
+*{
+  font-family: var(--font-heading-family);
+  font-style: var(--font-heading-style);
+  --font-heading-family: Quicksand, sans-serif;
+  --font-body-style: normal;
+}
+.carousel {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1300px;
+  height: 339px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+.slide-container{
+  padding: 30px 52px;
+  @include mobile(){
+    padding: 10px !important;
+    height: 700px;
+  }
+}
+.slide {
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+}
+.slide-hidden {
+  display: none;
+}
+
+.react-slideshow-container+ul.indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: -21px;
+}
+.react-slideshow-container+ul.indicators .each-slideshow-indicator:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  content: '';
+  text-align: center;
+}
+
+
+
+
+/* cardContainer --css */
+.cardContainer {
+  display: flex;
+  justify-content: space-between; /* Distribute cards evenly */
+  flex-wrap: wrap;
+}
+.cardContainer a{
+  @include mobile(){
+    padding: 20px 5px 5px 20px;
+  }
+}
+.card {
+  width: calc(100vw / 4 - 2vw);
+  flex:  1 1 calc(100vw / 4 - 20vw);
+  height: 300px;
+  background-color: #fafafa;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @include mobile(){
+    width: calc(100vw / 2 - 6vw);
+    height: 220px;
+  }
+}
+.card-img{
+    width: 290px;
+    height: 238px;
+    border-radius: 8px;
+}
+.card-img-one{
+    width: 240px;
+    height: 238px;
+    border-radius: 8px;
+}
+.heading-card{
+  margin-bottom: 32px;
+  font-size: 35px;
+  font-weight: bold;
+  color: #002d46;
+  @include mobile(){
+    font-size: 28px;
+    margin-left: 0;
+    margin-bottom: 25px;
+  }
+}
+.card-collection{
+  padding: 40px;
+  @include mobile(){
+    padding: 20px;
+  }
+}
+.card-collection a {
+  text-decoration: none;
+  color: black;
+  @include mobile(){
+    padding: 10px 0px;
+  }
+}
+.product-details-container p{
+  color: gray;
+}
+.price-container{
+  display: flex;
+  margin-top: -11px;
+}
+.price1{
+  margin-top: -15px;
+  margin-left: 8px;
+}
+/*
+
+"New-launch-box css
+
+*/
+.information{
+margin-left: 10px;
+}
+.New-launch-box{
+  // width: 1300px;
+  // height: 686px;
+  padding: 25px;
+
+}
+.Acnhor-tag-card{
+    @include mobile(){
+      // padding: 20px 5px 5px 20px;
+      width: 34vw;;
+      flex: 1;
+    }
+}
+.cardContainer-New-launch-box {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between; 
+  gap: 20px;
+  flex-wrap: wrap;
+  @include mobile(){
+    padding: 0 !important;
+    justify-content: space-between;
+    // flex-direction: column;
+  }
+}
+
+.card-New-launch-box{
+  width: calc(100vw / 4 - 5vw);
+  height: 570px;
+  border: 1px solid #dce3ea;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  border-radius: 8px;
+  @include mobile(){
+    width: calc(100vw / 2 - 7vw);
+    height: 500px;
+  }
+}
+.watch-container-child{
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include mobile(){
+    margin-top: 0;
+  }
+}
+
+.hover-text {
+  position: absolute;
+  margin-top: 222px;
+  display: flex;
+  align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-left: 15px;
+  width: 262px;
+  height: 15px;
+  background-color: #00b9aa;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  justify-content: center;
+  box-sizing: border-box;
+  text-align: center;
+
+  @include mobile(){
+    position: absolute;
+    margin-top: 222px;
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-left: 0px;
+    width: 212px;
+    height: 18px !important;
+    background-color: #00b9aa;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+  }
+  
+}
+
+.card-New-launch-box:hover .hover-text {
+  opacity: 1;
+}
+.heading-New-launch-box{
+  padding-top: 20px;
+  margin-left: 91px;
+  border-radius: 10px;
+    
+}
+.image-container{
+    width: 90%;
+    height: 272px;
+    margin-left: 14px;
+    background-color: white;
+    margin-top: 9px;
+    border-radius: 10px;
+    @include mobile(){
+      height: auto;
+      margin-left: 0;
+      margin-top: 0;
+      width: 100%;
+    }
+}
+.image-container img{
+  width: 100% !important;
+}
+.watch-card-container{
+  height: 60px;
+  display: flex;
+  margin-left: 12px;
+  margin-top: 15px;
+  width: 210px;
+  gap: 16px;
+  @include mobile(){
+    height: 50px;
+    margin-left: 7px;
+    width: 100%;
+    gap: 8px;
+  }
+}
+.watch-container{
+  background-color: white;
+  border: 1px solid #00b9aa;
+  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  @include mobile(){
+    border-radius: 8px;
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    overflow: hidden;
+  }
+}
+.info-card-container{
+  width: 281px;
+  height: 46px;
+  display: flex;
+  gap: 10px;
+}
+.info-card{
+  width: 120px;
+    height: 31px;
+    border-radius: 20px;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+}
+#pera{
+  font-size: 12px;
+  margin-top: 9px; 
+}
+.product-details-container p{
+  width: 273px;
+  height: 100px;
+}
+.price2{
+  margin-top: -82px;
+}
+.Acnhor-tag-card{
+  text-decoration: none;
+  color: black;
+  @include mobile(){
+    padding: 20px 0px;
+  }
+}
+.underline{
+  margin-top: 50px;
+}
+
+// Slider
+.Slider-width{
+  height: 500px;
+  @include mobile(){
+    height: 700px;
+  }
+}
+.bg-white-custom {
+  background-color: rgba(255, 253, 253, 0.58);/* equivalent to #fffdfdcf */
+}
