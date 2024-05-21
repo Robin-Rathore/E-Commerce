@@ -1,211 +1,91 @@
-import React, { useEffect, useState } from "react";
-import { wathcInformationFirstWatch, wathcInformationSecondWatch, wathcInformationThird, wathcInformationforth } from "./StaticData";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "./Carousel.scss";
-const ProductCard = () => {
-  useEffect(() => {
-    AOS.init({
-      offset: 10,
-      duration: 500,
-    });
-  }, []);
+// ProductCard.jsx
+
+import React from 'react';
+import "./ProductCard.scss";
+
+
+const ProductCard = ({ product }) => {
   return (
-    <div className="main-container">
-      <div className="underline">
-        <hr />
-      </div>
-      <div className="New-launch-box">
-        <div className="heading-card">
-          <h1>New Launches</h1>
-        </div>
-        <div className="cardContainer-New-launch-box">
-       <a href="" className="Acnhor-tag-card">
-       <div className="card-New-launch-box">
-            <div className="image-container">
-            <img  src="//www.pebblecart.com/cdn/shop/files/1_b43d36a1-af61-46b2-bcae-9ccb3c325ac3.jpg?v=1714727741&amp;width=500" alt="Pebble Rio" srcset="//www.pebblecart.com/cdn/shop/files/1_b43d36a1-af61-46b2-bcae-9ccb3c325ac3.jpg?v=1714727741&amp;width=165 165w, //www.pebblecart.com/cdn/shop/files/1_b43d36a1-af61-46b2-bcae-9ccb3c325ac3.jpg?v=1714727741&amp;width=360 360w, //www.pebblecart.com/cdn/shop/files/1_b43d36a1-af61-46b2-bcae-9ccb3c325ac3.jpg?v=1714727741&amp;width=500 500w" width="250" height="250" className="motion-reduce" sizes="(min-width: 1600px) 367px, (min-width: 990px) calc((100vw - 10rem) / 4), (min-width: 750px) calc((100vw - 10rem) / 3), calc(100vw - 3rem)" fetchpriority="high"></img>
-            </div>
-            <div className="watch-card-container">
-              <div className="watch-container">
-             <div className="watch-container-child">
-             <img  src="//www.pebblecart.com/cdn/shop/files/1_b43d36a1-af61-46b2-bcae-9ccb3c325ac3.jpg?v=1714727741&amp;width=100 " loading="lazy" width="50" height="50" alt="WINTER BLUE"/>
-             </div>
-              </div>
-              <div className="watch-container">
-                <div className="watch-container-child">
-                <img src="//www.pebblecart.com/cdn/shop/files/1_b4638282-9011-402a-a16d-3aac55283693.jpg?v=1714727741&amp;width=100 " loading="lazy" width="50" height="50" alt="JET BLACK"/>
-                </div>
-              </div>
-            </div>
-            <div className="information">
-              <h3>{ wathcInformationFirstWatch.name}</h3>
-              <div className="info-card-container">
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationFirstWatch.Highlight} </p>
-                </div>
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationFirstWatch.HighlightSecond} </p>
-                </div>
-              </div>
-              <div className="product-details-container">
-                  <p> {wathcInformationFirstWatch.ProductDetails} </p>
-                </div>
-                <div className="price2"><h5> {wathcInformationFirstWatch.price} </h5></div>
-                <div className="price-container">
-              <div className="peice-log">
-                <img className="discount_logo" src="//www.pebblecart.com/cdn/shop/files/wow-removebg-preview.png?v=1707281388&amp;width=100" alt="Pebble" width="50" height="30" loading="lazy"/>
-                </div>
-                <div className="price1"><h5> {wathcInformationforth.discount} </h5></div>
-              </div>
-            </div>
-            <div className="hover-text">
-              <strong> {wathcInformationFirstWatch.hoverText} </strong>
-            </div>
-          </div>
-       </a>
+    
+    <a href='' className="max-w-lg bg-gray-50 rounded overflow-hidden m-4 border-[2px] border-gray-150 rounded" style={{width:"20rem"}}>
+      <img className="w-full" src={product.image} alt={product.name} />
+      <div className="more-images flex">
+        <a href="" className="w-1/4 m-2 shining-blue rounded border-[2px] border-blue">
+          <img className='rounded'  src={product.image} alt={product.name} />
+        </a>
 
-          <a href=""  className="Acnhor-tag-card">
-          <div className="card-New-launch-box">
-            <div className="image-container">
-            <img src="//www.pebblecart.com/cdn/shop/files/1_2_6d11a3ab-2740-4685-83b1-fbb6a897e9d9.jpg?v=1715685109&amp;width=500" alt="Pebble Mega" srcset="//www.pebblecart.com/cdn/shop/files/1_2_6d11a3ab-2740-4685-83b1-fbb6a897e9d9.jpg?v=1715685109&amp;width=165 165w, //www.pebblecart.com/cdn/shop/files/1_2_6d11a3ab-2740-4685-83b1-fbb6a897e9d9.jpg?v=1715685109&amp;width=360 360w, //www.pebblecart.com/cdn/shop/files/1_2_6d11a3ab-2740-4685-83b1-fbb6a897e9d9.jpg?v=1715685109&amp;width=500 500w" width="250" height="250" className="motion-reduce" sizes="(min-width: 1600px) 367px, (min-width: 990px) calc((100vw - 10rem) / 4), (min-width: 750px) calc((100vw - 10rem) / 3), calc(100vw - 3rem)" fetchpriority="high" />
-            </div>
-             <div className="watch-card-container">
-              <div className="watch-container">
-             <div className="watch-container-child">
-             <img src="//www.pebblecart.com/cdn/shop/files/1_2_6d11a3ab-2740-4685-83b1-fbb6a897e9d9.jpg?v=1715685109&amp;width=100 " loading="lazy" width="50" height="50" alt="MIDNIGHT GOLD"/>
-             </div>
-              </div>
-              <div className="watch-container">
-                <div className="watch-container-child">
-                <img src="//www.pebblecart.com/cdn/shop/files/1_a29d6098-202a-472a-8545-eb18fdbf8b02.jpg?v=1715685109&amp;width=100 " loading="lazy" width="50" height="50" alt="MOONLIGHT GREY"/>
-                </div>
-              </div>
-            </div>
-            <div className="information">
-              <h3> {wathcInformationSecondWatch.name} </h3>
-              <div className="info-card-container">
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationSecondWatch.Highlight} </p>
-                </div>
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationSecondWatch.HighlightSecond} </p>
-                </div>
-              </div>
-              <div className="product-details-container">
-                  <p> {wathcInformationSecondWatch.ProductDetails} </p>
-                </div>
-                <div className="price2"><h5> {wathcInformationSecondWatch.price} </h5>
-                </div>
-                <div className="price-container">
-              <div className="peice-log">
-                <img className="discount_logo" src="//www.pebblecart.com/cdn/shop/files/wow-removebg-preview.png?v=1707281388&amp;width=100" alt="Pebble" width="50" height="30" loading="lazy"/>
-                </div>
-                <div className="price1"><h5> {wathcInformationforth.discount} </h5></div>
-              </div>                
-            </div>
-            <div className="hover-text">
-            <strong> {wathcInformationSecondWatch.hoverText} </strong>
-            </div>
-          </div>
-          </a>
-          
-          <a href="" className="Acnhor-tag-card">
-          <div className="card-New-launch-box">
-            <div className="image-container">
-            <img src="//www.pebblecart.com/cdn/shop/files/SMWGXFUM3HQ7XHWB_0.jpg?v=1715604712&amp;width=500" alt="Pebble Vienna" srcset="//www.pebblecart.com/cdn/shop/files/SMWGXFUM3HQ7XHWB_0.jpg?v=1715604712&amp;width=165 165w, //www.pebblecart.com/cdn/shop/files/SMWGXFUM3HQ7XHWB_0.jpg?v=1715604712&amp;width=360 360w, //www.pebblecart.com/cdn/shop/files/SMWGXFUM3HQ7XHWB_0.jpg?v=1715604712&amp;width=500 500w" width="250" height="250" className="motion-reduce" sizes="(min-width: 1600px) 367px, (min-width: 990px) calc((100vw - 10rem) / 4), (min-width: 750px) calc((100vw - 10rem) / 3), calc(100vw - 3rem)" fetchpriority="high"/>
-            </div>
-            <div className="down-section">
-            <div className="watch-card-container">
-              <div className="watch-container">
-             <div className="watch-container-child">
-             <img src="//www.pebblecart.com/cdn/shop/files/1_25.jpg?v=1715604712&amp;width=100 " loading="lazy" width="50" height="50" alt="Classic Silver"/>
-             </div>
-              </div>
-              <div className="watch-container">
-                <div className="watch-container-child">
-                <img src="//www.pebblecart.com/cdn/shop/files/SMWGXFUM3HQ7XHWB_0.jpg?v=1715604712&amp;width=100 " loading="lazy" width="50" height="50" alt="Classic Black"/>
-                </div>
-              </div>
-            </div>
-            </div>
-            <div className="information">
-              <h3> { wathcInformationThird.name }</h3>
-              <div className="info-card-container">
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationThird.Highlight} </p>
-                </div>
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationThird.HighlightSecond} </p>
-                </div>
-              </div>
-              <div className="product-details-container">
-                  <p> {wathcInformationThird.ProductDetails} </p>
-                </div>
-                <div className="price2"><h5> {wathcInformationThird.price} </h5>
-                </div>
-                <div className="price-container">
-              <div className="peice-log">
-                <img className="discount_logo" src="//www.pebblecart.com/cdn/shop/files/wow-removebg-preview.png?v=1707281388&amp;width=100" alt="Pebble" width="50" height="30" loading="lazy"/>
-                </div>
-                <div className="price1"><h5> {wathcInformationforth.discount} </h5></div>
-              </div>
-            </div>
-            <div className="hover-text">
-              <strong> {wathcInformationThird.hoverText} </strong>
-            </div>
-          </div>
-          </a>
+        <a href="" className="w-1/4 m-2 shining-blue rounded border-[2px] border-blue">
+          <img className='rounded' src={product.image} alt={product.name} />
+        </a>       
+        
+      </div>
+      
+      <div className="px-2 py-2">
+        <div className="font-bold text-[#002D46] text-xl mb-2">{product.name}</div>
+        <p className="text-gray-400 text-base">{product.ScreenSize} {product.Type} {product.DisplayType}</p>      
+        
+      </div>
 
-          <a href="" className="Acnhor-tag-card">
-          <div className="card-New-launch-box">
-            <div className="image-container">
-            <img src="//www.pebblecart.com/cdn/shop/files/royal_catalogue_imgBrown.jpg?v=1714735721&amp;width=500" alt="Pebble Royale" srcset="//www.pebblecart.com/cdn/shop/files/royal_catalogue_imgBrown.jpg?v=1714735721&amp;width=165 165w, //www.pebblecart.com/cdn/shop/files/royal_catalogue_imgBrown.jpg?v=1714735721&amp;width=360 360w, //www.pebblecart.com/cdn/shop/files/royal_catalogue_imgBrown.jpg?v=1714735721&amp;width=500 500w" width="250" height="250" className="motion-reduce" sizes="(min-width: 1600px) 367px, (min-width: 990px) calc((100vw - 10rem) / 4), (min-width: 750px) calc((100vw - 10rem) / 3), calc(100vw - 3rem)" fetchpriority="high"/>
-            </div>
-            <div className="watch-card-container">
-              <div className="watch-container">
-             <div className="watch-container-child">
-             <img src="//www.pebblecart.com/cdn/shop/files/royal_catalogue_imgBrown.jpg?v=1714735721&amp;width=100 " loading="lazy" width="50" height="50" alt="PFB79 Whisky Brown"/>
-             </div>
-              </div>
-              <div className="watch-container">
-                <div className="watch-container-child">
-                <img src="//www.pebblecart.com/cdn/shop/files/royal_catalogue_imgGreen.jpg?v=1714738004&amp;width=100 " loading="lazy" width="50" height="50" alt="PFB79 Pine Green"/>
-                </div>
-              </div>
-            </div>
-            <div className="information">
-              <h3> {wathcInformationforth.name} </h3>
-              <div className="info-card-container">
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationforth.Highlight} </p>
-                </div>
-                <div className="info-card">
-                  <p id="pera"> {wathcInformationforth.HighlightSecond} </p>
-                </div>
-              </div>
-              <div className="product-details-container">
-                  <p> {wathcInformationforth.ProductDetails} </p>
-                </div>
-                <div className="price2"><h5> {wathcInformationforth.price} </h5></div>
-              <div className="price-container">
-              <div className="peice-log">
-                <img className="discount_logo" src="//www.pebblecart.com/cdn/shop/files/wow-removebg-preview.png?v=1707281388&amp;width=100" alt="Pebble" width="50" height="30" loading="lazy"/>
-                </div>
-                <div className="price1"><h5> {wathcInformationforth.discount} </h5></div>
-              </div>
-            </div>
-            <div className="hover-text">
-             <strong> {wathcInformationforth.hoverText} </strong>
-            </div>
-          </div>
-          </a>
-        </div>
+      <div className="pricing flex ">
+        <div className="font-bold text-[#002D46] text-xl mb-2 ml-2">&#8377;{product.price}</div>
+        <div className="old ml-2 my-auto ml-2 text-gray-400" style={{textDecoration: "line-through"}}>&#8377;{product.oldPrice}</div>
+        <div className="discount mr-2 my-auto ml-3 font-bold" style={{color:"#FF6D5C"}}> {'('}{product?.discount}{')'} </div>
       </div>
-      <div className="underline">
-        <hr />
+
+      <div className="offer px-2 py-2 flex  text-[#002D46] ">
+        <img className='h-12 w-12' src="https://www.pebblecart.com/cdn/shop/files/wow-removebg-preview.png?v=1707281388&width=100" alt=""/>
+        <div className="second  my-auto ml-3 font-bold "> &#8377;{product.price}</div>
+        <div className="third my-auto ml-2"> with Bank offer</div>
       </div>
-    </div>
+    </a>
   );
 };
 
-export default ProductCard;
+const products = [
+  {
+    name: "Nike Air01",
+    price: '198',
+    oldPrice:'270',
+    discount:'12% off',
+    image: 'https://www.pebblecart.com/cdn/shop/files/1_2_6d11a3ab-2740-4685-83b1-fbb6a897e9d9.jpg?v=1715685109',
+    ScreenSize :" ( 5.23 cm)",
+    Type : "Amoled Smartwatch",
+    DisplayType : "Amoled Display",
+
+  },
+  {
+    name: 'Pebble Mega',    
+    price: '255',
+    oldPrice:'270',
+    discount:'12%',
+    image: 'https://www.pebblecart.com/cdn/shop/files/3_0f6e0532-1ea5-4372-affd-46bc67edad52.jpg?v=1715685109',
+    ScreenSize :" ( 5.23 cm)",
+    Type : "Amoled Smartwatch",
+    DisplayType : "Amoled Display",
+  },
+  {
+    name: 'Pebble Viena',
+    price: '340',
+    oldPrice:'270',
+    discount:'12%',
+    image: 'https://www.pebblecart.com/cdn/shop/files/2_2.jpg?v=1715685109',
+    ScreenSize :" ( 5.23 cm)",
+    Type : "Amoled Smartwatch",
+    DisplayType : "Amoled Display",
+  },
+];
+
+const ProductList = () => {
+  return (
+    <>
+    <div  className="head text-[#002D46] font-semibold text-4xl m-6 ml-12">New Launches</div>      
+    <div className="flex flex-wrap justify-center">
+      {products.map((product, index) => (
+        <ProductCard key={index} product={product} />
+      ))}
+    </div>
+    </>
+  );
+};
+
+export default ProductList;

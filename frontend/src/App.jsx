@@ -15,6 +15,8 @@ import Admin from './components/Admin';
 import AddProduct from './components/Pages/AddProduct';
 import UserInfo from './components/UserInfo';
 
+import ProductCard from './components/ProductCard';
+
 function App() {
   return (
     <>
@@ -37,7 +39,9 @@ function App() {
           </Routes>
         </BrowserRouter>
 
-        {/* <ProductDetail/> */}
+        
+        
+        
         
     </>
   )

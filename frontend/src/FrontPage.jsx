@@ -16,7 +16,7 @@ const FrontPage = () => {
       <TopSlider/>
       <Slideshow/>
       <Card/>
-      {/* <ProductCard/> */}
+      <ProductCard/>
       {/* <Divider style={{marginTop:"20px"}}/> */}
       <IconsSection/>
       <AdvPage/>
