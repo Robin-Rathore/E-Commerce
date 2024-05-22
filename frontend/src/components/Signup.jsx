@@ -6,6 +6,7 @@ import facebook from "../images/facebook-icon.png"
 import twitter from "../images/twitter-icon.png"
 import axios from 'axios'
 import Header from './Header';
+import TopSlider from './TopSlider';
 
 
 const Signup = () => {
@@ -33,7 +34,7 @@ const Signup = () => {
   return (
     <>
     <Header/>
-
+    <TopSlider/>
       <div className="flex justify-center items-center ">
         <div className="flex justify-center my-5 items-center bg-red-400" style={{}}>
           <form noValidate onSubmit={handleSubmit} className="bg-white p-10 md:p-20 rounded shadow-lg" style={{}}>
@@ -44,7 +45,7 @@ const Signup = () => {
             {/* Login instead */}
             <div className="flex flex-col md:flex-row">
               <p className="text-m font-normal text-gray-600 mb-3 md:mb-0 md:mt-1/2">Already have an account?  </p>
-              <Link to={"/login"} href="/Signup" className='ml-3 mb-2' style={{ color: "#00b9aa" }}> Login </Link>
+              <Link to={"/login"} className='ml-3 mb-2' style={{ color: "#00b9aa" }}> Login </Link>
             </div>
             
 

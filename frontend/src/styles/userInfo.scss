@@ -1,9 +1,25 @@
+@mixin mobile {
+    @media screen and (max-width: 520px) {
+      @content;
+    }
+  }
+
 .main{
     width:40% ;
     margin: auto;
-
+    @include mobile(){
+        width: 90%;
+    }
 }
 
+.top{
+    align-items: center;
+    padding: 30px;
+    font-size: 20px;
+    @include mobile(){
+        font-size: 17px;
+    }
+}
 .main .top p{
     border-bottom: 1px solid rgb(152, 144, 144);
 }
@@ -27,7 +43,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 2vh;
+    font-size: 15px;
 }
 
 .main .orders .empty .write span{
@@ -35,16 +51,6 @@
     font-weight: 400;
 }
 
-.main .orders .empty  button{
-    margin-top: 2vh;
-    display: inline-block;
-    background: rgba(0,185,170,255);
-    color: white;
-    width: 80%;
-    border-radius: 8px;
-    height: 6vh;
-    
-}
 
 .main hr{
     margin-top: 15px;
@@ -57,6 +63,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    gap: 10px;
 }
 
 .main .user h1{
@@ -64,9 +71,6 @@
 }
 
 .main .user .top-user{
-    font-weight: 300;
-}
-.main .user .bottom{
     font-weight: 300;
 }
 

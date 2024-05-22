@@ -59,7 +59,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<WatchIcon />}
               </ListItemIcon> 
-              <Link to={"./smartwatch"}><FlyoutLink>SMART WATCHES</FlyoutLink></Link>
+              <Link to={"/smartwatch"}><FlyoutLink>SMART WATCHES</FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -69,7 +69,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<FiberNewIcon />}
               </ListItemIcon> 
-              <Link to={"./newlaunches"}><FlyoutLink><span className="label">NEW LAUNCHES</span></FlyoutLink></Link>
+              <Link to={"/newlaunches"}><FlyoutLink><span className="label">NEW LAUNCHES</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -80,7 +80,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<HeadsetIcon />}
               </ListItemIcon> 
-              <Link to={"./earphones"}> <FlyoutLink><span className="label">EARPHONES</span></FlyoutLink></Link>
+              <Link to={"/earphones"}> <FlyoutLink><span className="label">EARPHONES</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -91,7 +91,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<SpeakerGroupIcon />}
               </ListItemIcon> 
-              <Link to={"./speakers"}> <FlyoutLink><span className="label">SPEAKERS</span></FlyoutLink></Link>
+              <Link to={"/speakers"}> <FlyoutLink><span className="label">SPEAKERS</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>
@@ -103,7 +103,7 @@ export default function Sidebar() {
                <ListItemIcon>
                 {<CableIcon />}
               </ListItemIcon> 
-              <Link to={"./accessories"}><FlyoutLink><span className="label">ACCESSORIES</span></FlyoutLink></Link>
+              <Link to={"/accessories"}><FlyoutLink><span className="label">ACCESSORIES</span></FlyoutLink></Link>
             </ListItemButton>
           </ListItem>
       </List>

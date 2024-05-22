@@ -1,7 +1,25 @@
+@mixin mobile {
+  @media screen and (max-width: 520px) {
+    @content;
+  }
+}
 .shining-blue {
-  background-color: #007bff; /* Blue color */
+  background-color: #00b9aa; /* Blue color */
   background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
   box-shadow: 0 0 20px 5px rgba(0, 123, 255, 0); /* Blue shadow with opacity */
   border-radius: 0px; /* Adjust as needed */
-  padding: 1px; /* Adjust as needed */
+  padding: .8px; /* Adjust as needed */
+}
+.product_Card_Wrapper {
+  width: calc(100vw/4 - 4vw) !important;
+  @include mobile(){
+    width: calc(100vw/2 - 6vw) !important;
+    padding: 0;
+    margin: 10px !important;
+  }
+}
+.product_card_Font p{
+  @include mobile(){
+    font-size: 14px;
+  }
 }

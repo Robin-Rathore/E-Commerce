@@ -21,7 +21,7 @@ function Card() {
       </div>
       <div className="cardContainer">
         <a href="">
-          <div data-aos="zoom-in" className="card">
+          <div data-aos="zoom-in" className="card1">
             <div className="iamge-holder">
               <img
                 src="//www.pebblecart.com/cdn/shop/files/285x291_Luxe_Edition.png?v=1691742387&amp;width=350"
@@ -40,7 +40,7 @@ function Card() {
           </div>
         </a>
         <a href="">
-          <div data-aos="zoom-in" className="card">
+          <div data-aos="zoom-in" className="card1">
             <div className="image-holder">
               <img
                 src="//www.pebblecart.com/cdn/shop/files/285x291_Gifting_Edition_2.png?v=1691750170&amp;width=350"
@@ -59,7 +59,7 @@ function Card() {
           </div>
         </a>
         <a href="">
-          <div data-aos="zoom-in" className="card">
+          <div data-aos="zoom-in" className="card1">
             <div className="image-holder">
               <img
                 src="//www.pebblecart.com/cdn/shop/files/285x291_Womens_Edition.png?v=1691748672&amp;width=350"
@@ -78,7 +78,7 @@ function Card() {
           </div>
         </a>
         <a href="">
-          <div data-aos="zoom-in" className="card">
+          <div data-aos="zoom-in" className="card1">
             <div className="image-holder">
               <img
                 src="//www.pebblecart.com/cdn/shop/files/285x291_Value_Edition_1.png?v=1691750192&amp;width=350"

@@ -14,8 +14,7 @@ import User from './components/User'
 import Admin from './components/Admin';
 import AddProduct from './components/Pages/AddProduct';
 import UserInfo from './components/UserInfo';
-
-import ProductCard from './components/ProductCard';
+import MyOrders from './components/MyOrders';
 
 function App() {
   return (
@@ -36,6 +35,7 @@ function App() {
             <Route path="/speakers" element={<Speaker/>} />
             <Route path="/accessories" element={<Accessories/>} />
             <Route path="/UserInfo" element={<UserInfo/>} />
+            <Route path="/myOrders" element={<MyOrders/>} />
           </Routes>
         </BrowserRouter>
 

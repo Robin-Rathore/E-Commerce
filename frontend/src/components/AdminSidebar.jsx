@@ -19,12 +19,12 @@ const { Header, Sider } = Layout;
 
 const items = [
   {
-    key: "/users",
+    key: "/user",
     icon: <UserOutlined />,
     label: "Users",
   },
   {
-    key: "/orders",
+    key: "/myOrders",
     icon: <ShoppingCartOutlined />,
     label: "Orders",
   },

@@ -2,10 +2,12 @@ import React from 'react'
 import "./SmartWatch.scss";
 import Header from "../Header";
 import Footer from "../Footer";
+import TopSlider from '../TopSlider';
 const Speaker = () => {
   return (
     <>
     <Header />
+    <TopSlider/>
     <div className="wrapper_of_SmartWatch">
       <div className="main_content_SmartWatch">
         <div className="heading_SmartWatch">

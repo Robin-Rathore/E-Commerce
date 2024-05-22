@@ -2,11 +2,13 @@ import React from "react";
 import "./SmartWatch.scss";
 import Header from "../Header";
 import Footer from "../Footer";
+import TopSlider from "../TopSlider";
 const SmartWatch = () => {
   return (
     <>
-      <div className="top_header">
+      <div className="top_heade">
         <Header />
+        <TopSlider/>
       </div>
       <div className="wrapper_of_SmartWatch">
         <div className="main_content_SmartWatch">
