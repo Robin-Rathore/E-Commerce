@@ -33,6 +33,11 @@ const items = [
     icon: <MenuFoldOutlined />,
     label: "Add Products",
   },
+  {
+    key: "/addProductToAdvPage",
+    icon: <MenuFoldOutlined />,
+    label: "Add ADV Product",
+  },
   
 ];
 

@@ -33,7 +33,7 @@ const imgs = viewPortWidth >= 520 ?
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 4;
-const DRAG_BUFFER = 50;
+const DRAG_BUFFER = 10;
 
 const SPRING_OPTIONS = {
   type: "spring",

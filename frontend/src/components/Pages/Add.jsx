@@ -105,6 +105,9 @@ const Add = () => {
   };
   return (
     <>
+    <div className="title flex justify-content-center p-8">
+      <h1>Create A Product</h1>
+      </div>
       <div className="form">
         <div className="card">
           <form noValidate onSubmit={handleSubmit}>

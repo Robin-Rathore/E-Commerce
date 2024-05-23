@@ -46,7 +46,7 @@ const VideoPage = () => {
         <div className="video--wrap-hero section--padding">
           <div className="page-width">
             <div className="title-wrapper">
-              <h3>Pebble Luxury Edition</h3>
+              <h3>EJ Luxury Edition</h3>
             </div>
             <div id="Banner-template--15090753830955__bf7bf20b-a98f-4fa9-8082-98b59829364a" className="banner banner--mobile-bottom video-interactable">
               <div className="banner__media">

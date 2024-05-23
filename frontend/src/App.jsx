@@ -15,6 +15,8 @@ import Admin from './components/Admin';
 import AddProduct from './components/Pages/AddProduct';
 import UserInfo from './components/UserInfo';
 import MyOrders from './components/MyOrders';
+import AdminInfo from './components/AdminInfo';
+import AddAdvPageProduct from './components/Pages/AddAdvPageProduct';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
             <Route path="/accessories" element={<Accessories/>} />
             <Route path="/UserInfo" element={<UserInfo/>} />
             <Route path="/myOrders" element={<MyOrders/>} />
+            <Route path="/addProductToAdvPage" element={<AddAdvPageProduct/>} />
+            <Route path="/AdminInfo" element={<AdminInfo/>} />
           </Routes>
         </BrowserRouter>
 

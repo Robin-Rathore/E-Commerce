@@ -3,6 +3,9 @@ import axios from "axios";
 import AdminSidebar from "./AdminSidebar";
 import { Link } from "react-router-dom";
 import Grid from "@mui/material/Grid/Grid";
+import Header from "./Header";
+import TopSlider from "./TopSlider";
+import Footer from "./Footer";
 const AdminInfo = () => {
   const [products, setProducts] = useState([]);
 
@@ -24,7 +27,7 @@ const AdminInfo = () => {
       await axios.delete(`http://localhost:8080/api/v1/product/delete/${id}`);
       fetchProducts()
     } catch (error) {
-      console.log(error);
+      console.log(" Error in fetchinf products ", error);
     }
   };
 
@@ -32,8 +35,11 @@ const AdminInfo = () => {
   useEffect(() => {
     fetchProducts();
   }, []);
+
   return (
     <>
+    <Header/>
+    <TopSlider/>
       <div className="container">
         <div className="row">
           <div className="col-md-3">
@@ -79,6 +85,7 @@ const AdminInfo = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };

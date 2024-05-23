@@ -24,7 +24,7 @@ const FrontPage = () => {
       <hr style={{position:"relative", top:"80px"}} className="w-full border-t border-gray-300 my-2" />
       {/**Experience pebble */}
       <div className="experiencePebble pt-28 pb-28 pl-12 pr-12">
-        <div style={{display:"flex", justifyContent:"flex-start", alignItems:"center"}} className="head text-[#002D46] font-semibold text-4xl mb-6 ">Experience Pebble</div>
+        <div style={{display:"flex", justifyContent:"flex-start", alignItems:"center"}} className="head text-[#002D46] font-semibold text-4xl mb-6 ">Experience EJ</div>
 
         <div className="images flex flex-wrap justify-between " style={{ fontSize: "15px", boxShadow:"none" }}>
           <div className="tag1 flex flex-col items-center w-1/10 sm:w-1/10 md:w-1/13 lg:w-1/9 p-1">

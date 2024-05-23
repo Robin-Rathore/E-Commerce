@@ -23,3 +23,9 @@
     font-size: 14px;
   }
 }
+
+.head{
+  @include mobile(){
+    font-size: 30px !important;
+  }
+}

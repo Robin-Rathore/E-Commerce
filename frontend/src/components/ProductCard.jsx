@@ -88,7 +88,7 @@ const products = [
 const ProductList = () => {
   return (
     <>
-    <div  className="head text-[#002D46] font-semibold text-4xl m-6 ml-12">New Launches</div>      
+    <div  className="head text-[#002D46] font-semibold text-4xl m-6 ">New Launches</div>      
     <div className="flex flex-wrap justify-center">
       {products.map((product, index) => (
         <ProductCard key={index} product={product} />
