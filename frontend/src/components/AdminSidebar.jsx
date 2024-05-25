@@ -15,6 +15,7 @@ import { Button, Menu } from "antd";
 import { Layout } from "antd";
 import "../styles/adminSidebar.css";
 import {useNavigate}from 'react-router-dom'
+import { PowerOffOutlined } from "@mui/icons-material";
 const { Header, Sider } = Layout;
 
 const items = [
@@ -37,6 +38,11 @@ const items = [
     key: "/addProductToAdvPage",
     icon: <MenuFoldOutlined />,
     label: "Add ADV Product",
+  },
+  {
+    key: "/",
+    icon: <PowerOffOutlined />,
+    label: "Logout",
   },
   
 ];
@@ -62,6 +68,9 @@ const AdminSidebar = () => {
         </Button> */}
         <Menu
         onClick={({key})=>{
+          if(key === "/"){
+            localStorage.removeItem("user");
+          }
             navigate(key)
         }}
           defaultSelectedKeys={["1"]}

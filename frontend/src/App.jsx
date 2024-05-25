@@ -17,6 +17,7 @@ import UserInfo from './components/UserInfo';
 import MyOrders from './components/MyOrders';
 import AdminInfo from './components/AdminInfo';
 import AddAdvPageProduct from './components/Pages/AddAdvPageProduct';
+import UpdateProduct from './components/UpdateProduct';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/register" element={<Signup/>} />
             <Route path="/user" element={<User />} />
             <Route path="/ProductDetail/:id" element={<ProductDetail/>} />
+            <Route path="/updateProduct/:id" element={<UpdateProduct/>} />
             <Route path="/bulkorder" element={<BulkOrderPage/>} />
             <Route path="/smartwatch" element={<SmartWatch/>} />
             <Route path="/newlaunches" element={<NewLaunches/>} />

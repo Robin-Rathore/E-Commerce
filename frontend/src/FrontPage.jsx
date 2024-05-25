@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from './components/Header'
 import TopSlider from './components/TopSlider'
 import Footer from './components/Footer'
@@ -9,7 +9,24 @@ import VideoPage from './components/videoPage';
 import Slideshow from './components/Sideshow';
 import Card from './components/Card';
 import ProductCard from './components/ProductCard';
+import axios from 'axios';
+import { User } from 'lucide-react';
 const FrontPage = () => {
+    const [item,setItem] = useState()
+    const user = JSON.parse(localStorage?.getItem("user"));
+    const getCart = async () => {
+        try {
+          const { data } = await axios.get(
+            `http://localhost:8080/api/v1/user/getCart/${user._id}`
+          );
+          setItem(data?.cart?.cart);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      useEffect(()=>{
+getCart()
+      },[User?._id])
   return (
     <>
       <Header/>

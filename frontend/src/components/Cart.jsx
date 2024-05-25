@@ -16,7 +16,7 @@ import axios from "axios";
 const CartComponent = () => {
   const [state, setState] = React.useState({ right: false });
   const user = JSON.parse(localStorage.getItem("user"));
-  
+  const [open,setOpen] = React.useState(false);
   const [item, setItem] = React.useState();
   const [price,setPrice] = React.useState()
   const toggleDrawer = (anchor, open) => (event) => {
@@ -30,6 +30,9 @@ const CartComponent = () => {
 
     setState({ ...state, [anchor]: open });
   };
+const toggleModel = ()=>{
+  setOpen(!open)
+}
 
   const getCart = async () => {
     try {
@@ -106,7 +109,9 @@ const CartComponent = () => {
                     Inclusive of all taxes. Discount codes will be applied at
                     checkout page
                   </h5>
-                  <button>Place Order ₹{price}</button>
+                  {/* <Link to="/orderVerify"> */}
+                  <button onClick={toggleModel}>Place Order ₹{price}</button>
+                  {/* </Link> */}
                 </div>
               </footer>
             </div>

@@ -28,20 +28,8 @@ const AddAdvPageProduct = () => {
     const categories = ["Watch", "Speakers", "Headphones", "Accessories"];
     const [images, setImages] = useState([]);
     const [imagePreviews, setImagePreviews] = useState([]);
-    const [products,setProducts]=useState([])
-  
-      const fetchProducts = async () => {
-          try {
-              const {data} = await axios.get('http://localhost:8080/api/v1/product/getAdvProduct');
-              console.log(data)
-          } catch (error) {
-              console.error('Error fetching products:', error);
-          }
-      };
-  
-      useEffect(()=>{
-        fetchProducts();
-      },[])
+    const [product,setProduct]=useState([])
+
   
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -65,25 +53,8 @@ const AddAdvPageProduct = () => {
       }
   
       try {
-        //   console.log(
-        // name,
-        // description,
-        // color,
-        // type,
-        // bluetoothVersion,
-        // category,
-        // discount,
-        // price,
-        // stock,
-        // model,
-        // screenSize,
-        // charging,
-        // battery,
-        // displayType,
-        //     formData
-        //   );
-        const { data } = await axios.post(
-          "http://localhost:8080/api/v1/product/createAdvProduct",
+        const { data } = await axios.put(
+          "http://localhost:8080/api/v1/frontProduct/addAdvProduct",
           formData,
           {
             headers: {
@@ -91,7 +62,6 @@ const AddAdvPageProduct = () => {
             },
           }
         );
-  
         console.log(data)
         if (data.success) {
           navigate("/admin");

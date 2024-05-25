@@ -66,7 +66,7 @@ const AdminInfo = () => {
                         <p class="card-text">{p.price}</p>
                       </div>
                       <div className="buttons">
-                        <Link to={`/update-product/${p._id}`}>
+                        <Link to={`/updateProduct/${p._id}`}>
                         <button type="submit" className="btn btn-secondary">
                           Update Product
                         </button>

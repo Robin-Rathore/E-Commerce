@@ -8,14 +8,6 @@ const MyOrders = () => {
     <>
       <Header />
       <TopSlider/>
-      <div className='wrapper'>
-        <p className='p-4 text-xl'>
-            My Orders
-        </p>
-        <div className="product-wrapper p-4">
-            <h2>Orders Displays Here</h2>
-        </div>
-      </div>
       <Footer />
     </>
   )

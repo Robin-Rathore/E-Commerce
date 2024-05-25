@@ -95,6 +95,7 @@ const ProductDetail = () => {
         `http://localhost:8080/api/v1/user/addToCart/${user._id}`,
         productData
       );
+      window.location.reload();
       console.log(data)
     } catch (error) {
       console.log(error)

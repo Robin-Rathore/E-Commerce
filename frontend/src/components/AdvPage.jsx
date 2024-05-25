@@ -42,13 +42,13 @@ import axios from "axios";
 const AdvPage = () => {
   const [product, setProduct] = useState();
   const [num, setNum] = useState(1);
+  const user = JSON.parse(localStorage?.getItem("user"));
   const getProduct = async () => {
     try {
-      const  {data} = await axios.get(
-        "http://localhost:8080/api/v1/frontProduct/get"
+      const { data } = await axios.get(
+        "http://localhost:8080/api/v1/frontProduct/getProduct"
       );
-      setProduct(data?.products[0])
-      console.log(product?.photo1)
+      setProduct(data[0]);
     } catch (error) {
       console.log(error);
     }
@@ -56,6 +56,47 @@ const AdvPage = () => {
   useEffect(() => {
     getProduct();
   }, []);
+
+  const handleSubmit = async()=>{
+    const productData = new FormData();
+    productData.append("name", product?.name);
+    productData.append("description", product?.description);
+    productData.append("price", product?.price);
+    productData.append("quantity",1);
+    productData.append("category", product?.category);
+    productData.append("color", product?.color);
+    productData.append("bluetoothVersion", product?.bluetoothVersion);
+    productData.append("discount", product?.discount);
+    productData.append("uid", product?._id);
+    productData.append("screensize", product?.screensize);
+    productData.append("model", product?.model);
+    productData.append("displayType", product?.displayType);
+    productData.append("charging", product?.charging);
+    productData.append("battery", product?.battery);
+    productData.append("stock", product?.stock);
+    productData.append("image", product?.images[0]);
+    try {
+      const {data}= await axios.post(
+        `http://localhost:8080/api/v1/user/addToCart/${user._id}`,
+        productData
+      );
+      window.location.reload()
+      getCart()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  const getCart = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/api/v1/user/getCart/${user._id}`
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     AOS.init({
@@ -70,23 +111,26 @@ const AdvPage = () => {
           <div className="right_wrapper">
             <div className="images">
               <div data-aos="zoom-in" className="image_item">
-                <img src={product[0]?.photo1} alt="" />
+                <img
+                  src={`http://localhost:8080/${product?.images[0]}`}
+                  alt=""
+                />
               </div>
               <div data-aos="zoom-in-left" className="image_item">
                 <img
-                  src="https://img.myipadbox.com/sec/product_l/TBD0602356301B.jpg"
+                  src={`http://localhost:8080/${product?.images[1]}`}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-down" className="image_item">
                 <img
-                  src="https://rukminim2.flixcart.com/image/850/1000/xif0q/smartwatch/o/c/e/34-oq18-android-ios-parmarorama-yes-original-imagtdfk4cqdgyag.jpeg?q=90&crop=false"
+                  src={`http://localhost:8080/${product?.images[2]}`}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-right" className="image_item">
                 <img
-                  src="https://rukminim2.flixcart.com/image/850/1000/xif0q/smartwatch/o/c/e/34-oq18-android-ios-parmarorama-yes-original-imagtdfk4cqdgyag.jpeg?q=90&crop=false"
+                  src={`http://localhost:8080/${product?.images[3]}`}
                   alt=""
                 />
               </div>
@@ -95,14 +139,17 @@ const AdvPage = () => {
           <div className="left_wrapper">
             <div className="product_info">
               <div className="product_title">
-                <h2>Pebble Blissbuds Ultra</h2>
+                <h2>{product?.name}</h2>
               </div>
               <div className="price">
-                <p className="main_price">₹ 1,799</p>
-                <p className="fake_price">
-                  M.R.P : <s>₹ 6,999</s>
+                <p className="main_price">
+                  ₹{" "}
+                  {product?.price - product?.price * (product?.discount / 100)}
                 </p>
-                <p className="discount">(75% Off)</p>
+                <p className="fake_price">
+                  M.R.P : <s>₹ {product?.price}</s>
+                </p>
+                <p className="discount">({product?.discount}% Off)</p>
                 <button className="sale_button">SALE</button>
               </div>
               <div className="quantity">
@@ -126,7 +173,7 @@ const AdvPage = () => {
                 </button>
               </div>
               <div className="add_to_cart_button">
-                <button
+                <button onClick={handleSubmit}
                   className='button_cart1
        relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
         px-4 py-2 font-semibold
@@ -173,8 +220,9 @@ const AdvPage = () => {
             </div>
           </div>
         </div>
-      ):( <h1>...loading</h1> )
-    }
+      ) : (
+        <h1>...loading</h1>
+      )}
     </div>
   );
 };

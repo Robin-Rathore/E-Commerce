@@ -11,7 +11,7 @@ const UserInfo = () => {
         <Link to={"/myOrders"} >
         <h1>My Orders</h1>
         </Link>
-        <Link to={"/login"}>
+        <Link to={"/login"} onClick={()=>{localStorage.removeItem("user")}}>
           <p>Logout</p>
         </Link>
       </div>
