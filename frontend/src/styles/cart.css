@@ -7,10 +7,18 @@
 
 .box .cart .item img{
     height: 8vh;
+    width: 8vh;
     border-radius: 50%;
+    
 }
 
 
+.box .cart .updated{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10px;
+}
 
 .box .cart .updated .quantity{
     display: flex;
@@ -20,7 +28,7 @@
 }
 
 .box .cart .updated .quantity p{
-    margin: 0px 7px;
+    margin: -10px 7px;
 }
 
 .box .cart .updated .quantity .minus{

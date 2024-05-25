@@ -7,10 +7,7 @@ import TopSlider from "./TopSlider";
 const Admin = () => {
   return (
     <>
-      <Header />
-      <TopSlider/>
       <AdminInfo />
-      <Footer />
     </>
   );
 };

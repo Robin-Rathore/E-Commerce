@@ -6,7 +6,7 @@ import apple from "../images/apple-icon.png"
 import facebook from "../images/facebook-icon.png"
 import twitter from "../images/twitter-icon.png"
 import { LinkOff, LinkOutlined } from '@mui/icons-material'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, json, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Header from './Header'
 import TopSlider from './TopSlider'
@@ -20,6 +20,7 @@ const Login = () => {
     try {
       e.preventDefault();
       const {data} =await axios.post("http://localhost:8080/api/v1/user/login",{email,password})
+      localStorage.setItem("user",JSON.stringify(data?.user))
       if(data?.success){
         if(data?.user?.role==0){
           navigate("/user")

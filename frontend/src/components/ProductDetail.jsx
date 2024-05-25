@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react'
 import './ProductDetail.css';
 
 import data from './data'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Header';
 
 const ProductDetail = () => {
   
   const [product,setProduct] = useState();
   const params = useParams();
   const id = params.id;
-
+  const navigate = useNavigate()
   const getProduct = async () => {
     const {data} = await axios.get(
       `http://localhost:8080/api/v1/product/getProduct/${id}`
@@ -60,7 +61,7 @@ const ProductDetail = () => {
 
   const [mainImg, setmainImg] = useState(product?.images[0]);
   const [fade, setfade] = useState(false);
-
+  const [selectedPhoto,setSelectedPhoto] = useState()
   const handleImageClick = (newImg) => {
       setfade(true);
       setTimeout(() => {
@@ -69,15 +70,46 @@ const ProductDetail = () => {
       }, 400);
   };
   
+  const user =JSON.parse(localStorage.getItem('user'))
+
+  const handleSubmit = async()=>{
+    const productData = new FormData();
+    productData.append("name", product?.name);
+    productData.append("description", product?.description);
+    productData.append("price", product?.price);
+    productData.append("quantity",1);
+    productData.append("category", product?.category);
+    productData.append("color", product?.color);
+    productData.append("bluetoothVersion", product?.bluetoothVersion);
+    productData.append("discount", product?.discount);
+    productData.append("uid", product?._id);
+    productData.append("screensize", product?.screensize);
+    productData.append("model", product?.model);
+    productData.append("displayType", product?.displayType);
+    productData.append("charging", product?.charging);
+    productData.append("battery", product?.battery);
+    productData.append("stock", product?.stock);
+    productData.append("image", product?.images[0]);
+    try {
+      const {data}= await axios.post(
+        `http://localhost:8080/api/v1/user/addToCart/${user._id}`,
+        productData
+      );
+      console.log(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     
     <>
+    <Header/>
       <section className='pt-8 lg:py-16 lg:h-screen pl-4 pr-4 pb-[30px]' >
         <div className='container mx-auto flex flex-col lg:flex-row'>
           <div className="lg:w-1/2">
             <div className="productImage flex items-center justify-center lg:justify-start border-2 border-gray-100 rounded-lg  ${fade ? 'fade-out' : ''}`}">
-              <img className= {`w-full max-w-full lg:max-w-[600px] rounded-lg ${fade ? 'fade-out' : ''}`} src={`http://localhost:8080/${product?.images[0]}`} alt="Product"  />
+              <img className= {`w-full max-w-full lg:max-w-[600px] rounded-lg ${fade ? 'fade-out' : ''}`} src={`http://localhost:8080/${selectedPhoto ? selectedPhoto :product?.images[0]}`} alt="Product"  />
             </div>            
 
             <div className="sub-images flex flex-wrap mt-4 justify-center">
@@ -85,21 +117,21 @@ const ProductDetail = () => {
                   style={{cursor:"pointer"} }
                   src={`http://localhost:8080/${product?.images[0]}`}
                   alt="Product" 
-                  onClick={()=>handleImageClick(product?.images[0])}
+                  onClick={()=>{handleImageClick(product?.images[0]);setSelectedPhoto(product?.images[0])}}
               />
 
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"}}
                   src={`http://localhost:8080/${product?.images[1]}`}
                   alt="Product" 
-                  onClick={()=>handleImageClick(product?.images[1])}
+                  onClick={()=>{handleImageClick(product?.images[1]);setSelectedPhoto(product?.images[1])}}
               />
 
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"}}
                   src={`http://localhost:8080/${product?.images[2]}`}
                   alt="Product" 
-                  onClick={()=>handleImageClick(product?.images[2])}
+                  onClick={()=>{handleImageClick(product?.images[2]);setSelectedPhoto(product?.images[2])}}
               />
             </div>
           </div>
@@ -111,14 +143,14 @@ const ProductDetail = () => {
             <div className="description mt-2 mb-4 text-[20px]" style={{color:"#919291"}} > {product?.description} </div>
 
             <div className="price flex ">              
-              <div className="present-cost mr-2 font-bold" style={{fontSize:"32px", color:"#002D46"}}>&#8377;{product?.discount}</div>
+              <div className="present-cost mr-2 font-bold" style={{fontSize:"32px", color:"#002D46"}}>&#8377;{product?.price-(product?.price * (product?.discount/100))}</div>
 
               <div className="oldPrice mr-2 my-auto flex" style={{color:"#919291"}}>
                 <div className="mrp my-auto">M.R.P: </div>
                 <div className="old my-auto" style={{textDecoration: "line-through"}}>&#8377;{product?.price}</div>
               </div>
 
-              <div className="discount mr-2 my-auto font-bold" style={{color:"#FF6D5C"}}> {'('}{product?.discount}{')'} </div>
+              <div className="discount mr-2 my-auto font-bold" style={{color:"#FF6D5C"}}> {'('}{product?.discount}{')'} %</div>
             </div>
 
             <div className="alltax text-sm mb-5" style={{ marginTop: "-0.5rem",color:"#002D46" }}>Inclusive of all taxes</div>
@@ -130,7 +162,8 @@ const ProductDetail = () => {
 
             {/**Cart and buy */}
             <div style={{display:"flex", flexDirection:"row", gap:"20px"}} className="cartAndBuy flex flex-col lg:flex-row mb-14">
-            <button
+            <button type='button' onClick={handleSubmit}
+            
               className='button_cart1
               relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
               px-4 py-2 font-semibold
@@ -149,7 +182,7 @@ const ProductDetail = () => {
               active:scale-95'
             >
               
-              <span>Add To Cart</span>
+              <span  >Add To Cart</span>
             </button>
               <button className='button_cart1 buyNow shining-btn flex-grow  text-white font-bold py-4 px-4 rounded-lg border' style={{backgroundColor:"#52B6AA"}} >Buy Now</button>
             </div>

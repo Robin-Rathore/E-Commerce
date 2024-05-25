@@ -11,10 +11,14 @@ import { Close } from "@mui/icons-material";
 import "../styles/cart.css";
 import watch3 from "../images/watch3.jpg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const CartComponent = () => {
   const [state, setState] = React.useState({ right: false });
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  
+  const [item, setItem] = React.useState();
+  const [price,setPrice] = React.useState()
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
@@ -27,6 +31,38 @@ const CartComponent = () => {
     setState({ ...state, [anchor]: open });
   };
 
+  const getCart = async () => {
+    try {
+      const { data } = await axios.get(
+        `http://localhost:8080/api/v1/user/getCart/${user._id}`
+      );
+      setItem(data?.cart?.cart);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const totalPrice = () => {
+    try {
+      let total = 0;
+      item?.map(
+        (order) => (total = total + (order.price - (order.price * (order.discount/100))) * parseInt(order.quantity))
+      );
+      setPrice(total);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+  React.useEffect(()=>{
+    totalPrice()
+  },[item])
+
+  React.useEffect(()=>{
+    getCart()
+  },[user?._id])
   const list = (anchor, items) => (
     <div className="Cart-Area">
       <div className="top">
@@ -35,44 +71,46 @@ const CartComponent = () => {
           <CloseIcon />{" "}
         </Button>
       </div>
-      {!items ? (
+      {item ? (
         <>
-          <div className="box">
-            <hr />
-            <div className="cart">
-              <div className="item">
-                <img src={watch3} alt="item-image" />
-                <h1>Rolex Vianna</h1>
-                <CloseIcon />
-              </div>
-              <div className="updated item">
-                <div className="quantity">
-                  <div className="minus">
-                    <span>&#8722;</span>
-                  </div>
-                  <p>1</p>
-                  <div className="plus">
-                    <span>&#43;</span>
-                  </div>
-                </div>
-                <p>₹2,299 M.R.P.: ₹6,999 (68% Off)</p>
-              </div>
+          {item?.map((c) => (
+            <div className="box">
               <hr />
+              <div className="cart">
+                <div className="item">
+                  <img src={`http://localhost:8080/${c.image}`} alt="item-image" />
+                  <h1>{c.name}</h1>
+                  <CloseIcon />
+                </div>
+                <div className="updated item">
+                  <div className="quantity">
+                    <div className="minus">
+                      <span>&#8722;</span>
+                    </div>
+                    <p>{c.quantity}</p>
+                    <div className="plus">
+                      <span>&#43;</span>
+                    </div>
+                  </div>
+                  <p>₹{c.price - (c.price * (c.discount/100))} M.R.P.: ₹{c.price} ({c.discount}% Off)</p>
+                </div>
+                <hr />
+              </div>
+              <footer>
+                <div className="price">
+                  <h1>Subtotal</h1>
+                  <h1>₹ {price}</h1>
+                </div>
+                <div className="bottom">
+                  <h5>
+                    Inclusive of all taxes. Discount codes will be applied at
+                    checkout page
+                  </h5>
+                  <button>Place Order ₹{price}</button>
+                </div>
+              </footer>
             </div>
-            <footer>
-              <div className="price">
-                <h1>Subtotal</h1>
-                <h1>₹ Price</h1>
-              </div>
-              <div className="bottom">
-                <h5>
-                  Inclusive of all taxes. Discount codes will be applied at
-                  checkout page
-                </h5>
-                <button>Place Order ₹2,299</button>
-              </div>
-            </footer>
-          </div>
+          ))}
         </>
       ) : (
         <>
@@ -126,7 +164,7 @@ const CartComponent = () => {
                   hover:before:translate-x-[0%]
                   hover:before:translate-y-[0%]
                   active:scale-95'
-                          >
+              >
                 <span>Smart Watches</span>
               </button>
             </Link>
@@ -325,7 +363,13 @@ const CartComponent = () => {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button style={{minWidth:"45px"}} className="button1" onClick={toggleDrawer(anchor, true)}><img src={cart}></img></Button>
+          <Button
+            style={{ minWidth: "45px" }}
+            className="button1"
+            onClick={toggleDrawer(anchor, true)}
+          >
+            <img src={cart}></img>
+          </Button>
           <SwipeableDrawer
             anchor={anchor}
             open={state[anchor]}
