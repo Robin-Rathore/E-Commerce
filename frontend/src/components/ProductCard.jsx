@@ -2,12 +2,13 @@
 
 import React from 'react';
 import "./ProductCard.scss";
+import { Link } from 'react-router-dom';
 
 
 const ProductCard = ({ product }) => {
   return (
     
-    <a href='' className="product_Card_Wrapper max-w-lg bg-gray-50 rounded overflow-hidden m-4 border-[1px] border-gray-150 rounded">
+    <Link to={`/productDetails/${product.id}`}  className="product_Card_Wrapper max-w-lg bg-gray-50 rounded overflow-hidden m-4 border-[1px] border-gray-150 rounded">
       <img className="w-full" src={product.image} alt={product.name} />
       <div className="more-images flex">
         <a href="" className="w-1/5 m-2 shining-blue rounded border-[1px] border-blue">
@@ -37,12 +38,13 @@ const ProductCard = ({ product }) => {
         <div className="second  my-auto ml-3 font-bold "> &#8377;{product.price}</div>
         <div className="third my-auto ml-2"> with Bank offer</div>
       </div>
-    </a>
+    </Link>
   );
 };
 
 const products = [
   {
+    id: 0,
     name: "Nike Air01",
     price: '198',
     oldPrice:'270',
@@ -54,6 +56,7 @@ const products = [
 
   },
   {
+    id: 1,
     name: 'Pebble Mega',    
     price: '255',
     oldPrice:'270',
@@ -64,6 +67,7 @@ const products = [
     DisplayType : "Amoled Display",
   },
   {
+    id: 2,
     name: 'Pebble Viena',
     price: '340',
     oldPrice:'270',
@@ -74,6 +78,7 @@ const products = [
     DisplayType : "Amoled Display",
   },
   {
+    id: 3,
     name: 'Pebble Viena',
     price: '340',
     oldPrice:'270',

@@ -18,6 +18,7 @@ import MyOrders from './components/MyOrders';
 import AdminInfo from './components/AdminInfo';
 import AddAdvPageProduct from './components/Pages/AddAdvPageProduct';
 import UpdateProduct from './components/UpdateProduct';
+import OrderDetails from './components/OrderDetails';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/myOrders" element={<MyOrders/>} />
             <Route path="/addProductToAdvPage" element={<AddAdvPageProduct/>} />
             <Route path="/AdminInfo" element={<AdminInfo/>} />
+            <Route path="/OrderDetails" element={<OrderDetails/>} />
           </Routes>
         </BrowserRouter>
 

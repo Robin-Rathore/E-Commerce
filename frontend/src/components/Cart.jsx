@@ -109,9 +109,40 @@ const toggleModel = ()=>{
                     Inclusive of all taxes. Discount codes will be applied at
                     checkout page
                   </h5>
-                  {/* <Link to="/orderVerify"> */}
-                  <button onClick={toggleModel}>Place Order ₹{price}</button>
-                  {/* </Link> */}
+                  <Link
+              style={{
+                display: "inline-block",
+                textDecoration: "none",
+                color: "inherit",
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              to={"/OrderDetails"}
+            >
+              <button
+                className='button_cart2
+                  relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
+                    px-4 py-2 font-semibold
+                  uppercase transition-all duration-500
+                  
+                  before:absolute before:inset-0
+                  before:-z-10 before:translate-x-[150%]
+                  before:translate-y-[150%] before:scale-[2.5]
+                  before:rounded-[100%] before:bg-SecondaryColor
+                  before:transition-transform before:duration-1000
+                  before:content-[""]
+
+                  hover:scale-105 hover:text-PrimaryColor
+                  hover:before:translate-x-[0%]
+                  hover:before:translate-y-[0%]
+                  active:scale-95'
+              >
+                <span>Place Order ₹{price}</span>
+              </button>
+            </Link>
+                  {/* <button>Place Order ₹{price}</button> */}
                 </div>
               </footer>
             </div>
