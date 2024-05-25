@@ -38,8 +38,6 @@ const AdminInfo = () => {
 
   return (
     <>
-    <Header/>
-    <TopSlider/>
       <div className="container">
         <div className="row">
           <div className="col-md-3">
@@ -85,7 +83,6 @@ const AdminInfo = () => {
           </div>
         </div>
       </div>
-      <Footer/>
     </>
   );
 };
