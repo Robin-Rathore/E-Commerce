@@ -10,7 +10,7 @@ const AdminInfo = () => {
   useEffect(() => {
       const fetchProducts = async () => {
           try {
-              const res = await axios.get('http://localhost:8080/api/v1/frontProduct/getProducts');
+              const res = await axios.get('https://ej-backend.onrender.com/api/v1/frontProduct/getProducts');
               setProducts(res.data);
           } catch (error) {
               console.error('Error fetching products:', error);
@@ -48,7 +48,7 @@ const handleSubmit = async (e) => {
     }
 
     try {
-        const res = await axios.post('http://localhost:8080/api/v1/frontProduct/addProduct', formData, {
+        const res = await axios.post('https://ej-backend.onrender.com/api/v1/frontProduct/addProduct', formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -67,7 +67,7 @@ const handleSubmit = async (e) => {
                     <h2>{product.name}</h2>
                     <div>
                         {product.images.map((image, index) => (
-                            <img key={index} src={`http://localhost:8080/${image}`} alt={`Product ${index + 1}`} style={{ width: '100px', height: '100px', margin: '10px' }} />
+                            <img key={index} src={`https://ej-backend.onrender.com/${image}`} alt={`Product ${index + 1}`} style={{ width: '100px', height: '100px', margin: '10px' }} />
                         ))}
                     </div>
                 </div>

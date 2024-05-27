@@ -17,7 +17,7 @@ const FrontPage = () => {
     const getCart = async () => {
         try {
           const { data } = await axios.get(
-            `http://localhost:8080/api/v1/user/getCart/${user._id}`
+            `https://ej-backend.onrender.com/api/v1/user/getCart/${user._id}`
           );
           setItem(data?.cart?.cart);
         } catch (error) {

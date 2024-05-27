@@ -18,7 +18,7 @@ const Signup = () => {
     try {
       e.preventDefault();
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/user/register",
+        "https://ej-backend.onrender.com/api/v1/user/register",
         { firstName, lastName, email, password }
       );
       console.log(data?.user);

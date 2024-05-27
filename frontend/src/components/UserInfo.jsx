@@ -36,7 +36,7 @@ const UserInfo = () => {
   const getOrder = async () => {
     try {
       const data = await axios.get(
-        `http://localhost:8080/api/v1/order/getOrder/${user?._id}`
+        `https://ej-backend.onrender.com/api/v1/order/getOrder/${user?._id}`
       );
       setOrders(data?.data?.o);
     } catch (error) {
@@ -93,7 +93,7 @@ const UserInfo = () => {
                             <StyledTableRow className="ma" key={product.name}>
                               <StyledTableCell component="th" scope="row">
                                 <img
-                                  src={`http://localhost:8080/${product.image}`}
+                                  src={`https://ej-backend.onrender.com/${product.image}`}
                                 />
                               </StyledTableCell>
                               <StyledTableCell align="right">
@@ -153,10 +153,8 @@ const UserInfo = () => {
       <div className="user">
         <h1>ACCOUNT DETAILS</h1>
         <div className="top-user">
-          <h4>Name</h4>
-          <h4>Email Address</h4>
-          <h4>Phone</h4>
-          <h4>Address</h4>
+          <h4>{user?.firstName}  {" "}  {user?.lastName} </h4>
+          <h4>{user?.email}</h4>
         </div>
       </div>
     </div>

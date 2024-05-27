@@ -28,7 +28,7 @@ const Add = () => {
 
     const fetchProducts = async () => {
         try {
-            const {data} = await axios.get('http://localhost:8080/api/v1/product/getProducts');
+            const {data} = await axios.get('https://ej-backend.onrender.com/api/v1/product/getProducts');
             console.log(data)
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -79,7 +79,7 @@ const Add = () => {
       //     formData
       //   );
       const { data } = await axios.post(
-        "http://localhost:8080/api/v1/product/create",
+        "https://ej-backend.onrender.com/api/v1/product/create",
         formData,
         {
           headers: {

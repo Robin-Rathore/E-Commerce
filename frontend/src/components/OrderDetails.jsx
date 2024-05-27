@@ -63,7 +63,7 @@ const OrderDetails = () => {
   const getCart = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/user/getCart/${user._id}`
+        `https://ej-backend.onrender.com/api/v1/user/getCart/${user._id}`
       );
       setCart(data?.cart?.cart);
     } catch (error) {
@@ -79,7 +79,7 @@ const OrderDetails = () => {
     try {
       const address = [fullAddress, state, city, pinCode];
       const { data } = await axios.post(
-        `http://localhost:8080/api/v1/order/createOrder/${user?._id}`,
+        `https://ej-backend.onrender.com/api/v1/order/createOrder/${user?._id}`,
         { address, phone, cart }
       );
       resetCart();
@@ -103,7 +103,7 @@ const OrderDetails = () => {
   const resetCart = async () => {
     try {
       await axios.post(
-        `http://localhost:8080/api/v1/user/resetCart/${user._id}`
+        `https://ej-backend.onrender.com/api/v1/user/resetCart/${user._id}`
       );
     } catch (error) {
       console.log(error);

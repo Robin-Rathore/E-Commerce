@@ -46,7 +46,7 @@ const AdvPage = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/frontProduct/getProduct"
+        "https://ej-backend.onrender.com/api/v1/frontProduct/getProduct"
       );
       setProduct(data[0]);
     } catch (error) {
@@ -77,7 +77,7 @@ const AdvPage = () => {
     productData.append("image", product?.images[0]);
     try {
       const {data}= await axios.post(
-        `http://localhost:8080/api/v1/user/addToCart/${user._id}`,
+        `https://ej-backend.onrender.com/api/v1/user/addToCart/${user._id}`,
         productData
       );
       window.location.reload()
@@ -91,7 +91,7 @@ const AdvPage = () => {
   const getCart = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/user/getCart/${user._id}`
+        `https://ej-backend.onrender.com/api/v1/user/getCart/${user._id}`
       );
     } catch (error) {
       console.log(error);
@@ -112,25 +112,25 @@ const AdvPage = () => {
             <div className="images">
               <div data-aos="zoom-in" className="image_item">
                 <img
-                  src={`http://localhost:8080/${product?.images[0]}`}
+                  src={`https://ej-backend.onrender.com/${product?.images[0]}`}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-left" className="image_item">
                 <img
-                  src={`http://localhost:8080/${product?.images[1]}`}
+                  src={`https://ej-backend.onrender.com/${product?.images[1]}`}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-down" className="image_item">
                 <img
-                  src={`http://localhost:8080/${product?.images[2]}`}
+                  src={`https://ej-backend.onrender.com/${product?.images[2]}`}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-right" className="image_item">
                 <img
-                  src={`http://localhost:8080/${product?.images[3]}`}
+                  src={`https://ej-backend.onrender.com/${product?.images[3]}`}
                   alt=""
                 />
               </div>

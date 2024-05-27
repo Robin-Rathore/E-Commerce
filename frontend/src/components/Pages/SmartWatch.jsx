@@ -8,7 +8,7 @@ const SmartWatch = () => {
   const [items,setItems] = useState([])
   const smartWatch = "watch"
   const getItems = async()=>{
-    const {data} = await axios.post("http://localhost:8080/api/v1/product/filteredProducts",{category:smartWatch})
+    const {data} = await axios.post("https://ej-backend.onrender.com/api/v1/product/filteredProducts",{category:smartWatch})
     setItems(data?.products)
   }
   useEffect(()=>{

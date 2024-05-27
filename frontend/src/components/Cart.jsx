@@ -39,7 +39,7 @@ const CartComponent = () => {
   const getCart = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/user/getCart/${user._id}`
+        `https://ej-backend.onrender.com/api/v1/user/getCart/${user._id}`
       );
       setItem(data?.cart?.cart);
     } catch (error) {
@@ -86,7 +86,7 @@ const CartComponent = () => {
   const handleChange = async (uid, qty) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:8080/api/v1/user/updateCart/${user?._id}`,
+        `https://ej-backend.onrender.com/api/v1/user/updateCart/${user?._id}`,
         { uid, qty }
       );
       getCart();
@@ -97,7 +97,7 @@ const CartComponent = () => {
 
   const handleDelete = async(uid)=>{
     try {
-      const {data} = await axios.post(`http://localhost:8080/api/v1/user/deleteCart/${user?._id}`,{uid})
+      const {data} = await axios.post(`https://ej-backend.onrender.com/api/v1/user/deleteCart/${user?._id}`,{uid})
       getCart()
     } catch (error) {
       console.log(error)
@@ -132,7 +132,7 @@ const CartComponent = () => {
               <div className="cart">
                 <div className="item">
                   <img
-                    src={`http://localhost:8080/${c.image}`}
+                    src={`https://ej-backend.onrender.com/${c.image}`}
                     alt="item-image"
                   />
                   <h1>{c.name}</h1>

@@ -54,7 +54,7 @@ const AddAdvPageProduct = () => {
   
       try {
         const { data } = await axios.put(
-          "http://localhost:8080/api/v1/frontProduct/addAdvProduct",
+          "https://ej-backend.onrender.com/api/v1/frontProduct/addAdvProduct",
           formData,
           {
             headers: {

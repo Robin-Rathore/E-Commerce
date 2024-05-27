@@ -14,7 +14,7 @@ const ProductDetail = () => {
   const navigate = useNavigate()
   const getProduct = async () => {
     const {data} = await axios.get(
-      `http://localhost:8080/api/v1/product/getProduct/${id}`
+      `https://ej-backend.onrender.com/api/v1/product/getProduct/${id}`
     );
     setProduct(data?.product)
   };
@@ -92,7 +92,7 @@ const ProductDetail = () => {
     productData.append("image", product?.images[0]);
     try {
       const {data}= await axios.post(
-        `http://localhost:8080/api/v1/user/addToCart/${user._id}`,
+        `https://ej-backend.onrender.com/api/v1/user/addToCart/${user._id}`,
         productData
       );
       window.location.reload();
@@ -110,27 +110,27 @@ const ProductDetail = () => {
         <div className='container mx-auto flex flex-col lg:flex-row'>
           <div className="lg:w-1/2">
             <div className="productImage flex items-center justify-center lg:justify-start border-2 border-gray-100 rounded-lg  ${fade ? 'fade-out' : ''}`}">
-              <img className= {`w-full max-w-full lg:max-w-[600px] rounded-lg ${fade ? 'fade-out' : ''}`} src={`http://localhost:8080/${selectedPhoto ? selectedPhoto :product?.images[0]}`} alt="Product"  />
+              <img className= {`w-full max-w-full lg:max-w-[600px] rounded-lg ${fade ? 'fade-out' : ''}`} src={`https://ej-backend.onrender.com/${selectedPhoto ? selectedPhoto :product?.images[0]}`} alt="Product"  />
             </div>            
 
             <div className="sub-images flex flex-wrap mt-4 justify-center">
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"} }
-                  src={`http://localhost:8080/${product?.images[0]}`}
+                  src={`https://ej-backend.onrender.com/${product?.images[0]}`}
                   alt="Product" 
                   onClick={()=>{handleImageClick(product?.images[0]);setSelectedPhoto(product?.images[0])}}
               />
 
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"}}
-                  src={`http://localhost:8080/${product?.images[1]}`}
+                  src={`https://ej-backend.onrender.com/${product?.images[1]}`}
                   alt="Product" 
                   onClick={()=>{handleImageClick(product?.images[1]);setSelectedPhoto(product?.images[1])}}
               />
 
               <img className="w-1/3 lg:w-auto lg:max-w-[130px] rounded-lg p-1 border-[1px] border-gray-100"
                   style={{cursor:"pointer"}}
-                  src={`http://localhost:8080/${product?.images[2]}`}
+                  src={`https://ej-backend.onrender.com/${product?.images[2]}`}
                   alt="Product" 
                   onClick={()=>{handleImageClick(product?.images[2]);setSelectedPhoto(product?.images[2])}}
               />

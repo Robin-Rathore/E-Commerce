@@ -21,7 +21,7 @@ const MyOrders = () => {
   const getOrders = async () => {
     try {
       const o = await axios.get(
-        `http://localhost:8080/api/v1/order/getAllOrders`
+        `https://ej-backend.onrender.com/api/v1/order/getAllOrders`
       );
       console.log(o.data.orders);
       setOrders(o.data.orders);
@@ -34,7 +34,7 @@ const MyOrders = () => {
     try {
       console.log(status);
       const updatedCart = await axios.put(
-        `http://localhost:8080/api/v1/order/updateOrder/${id}`,
+        `https://ej-backend.onrender.com/api/v1/order/updateOrder/${id}`,
         { newStatus }
       );
       getOrders();
@@ -107,7 +107,7 @@ const MyOrders = () => {
                                 >
                                   <StyledTableCell component="th" scope="row">
                                     <img
-                                      src={`http://localhost:8080/${product.image}`}
+                                      src={`https://ej-backend.onrender.com/${product.image}`}
                                     />
                                   </StyledTableCell>
                                   <StyledTableCell align="right">

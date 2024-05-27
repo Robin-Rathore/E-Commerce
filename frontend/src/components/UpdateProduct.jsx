@@ -30,7 +30,7 @@ const UpdateProduct = () => {
     
     const getProduct = async()=>{
         try {
-            const {data} = await axios.get(`http://localhost:8080/api/v1/product/getProduct/${params.id}`)
+            const {data} = await axios.get(`https://ej-backend.onrender.com/api/v1/product/getProduct/${params.id}`)
             setProduct(data?.product)
             setName(data?.product?.name)
             setDescription(data?.product?.description)
@@ -80,7 +80,7 @@ const UpdateProduct = () => {
     
         try {
           const { data } = await axios.put(
-            `http://localhost:8080/api/v1/product/update/${product._id}`,
+            `https://ej-backend.onrender.com/api/v1/product/update/${product._id}`,
             formData,
             {
               headers: {

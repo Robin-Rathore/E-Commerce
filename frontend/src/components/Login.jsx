@@ -19,7 +19,7 @@ const Login = () => {
   const handleLogin = async(e)=>{
     try {
       e.preventDefault();
-      const {data} =await axios.post("http://localhost:8080/api/v1/user/login",{email,password})
+      const {data} =await axios.post("https://ej-backend.onrender.com/api/v1/user/login",{email,password})
       localStorage.setItem("user",JSON.stringify(data?.user))
       if(data?.success){
         if(data?.user?.role==0){

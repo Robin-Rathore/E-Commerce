@@ -14,7 +14,7 @@ const AdminInfo = () => {
   const getTotal = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/product/product-count"
+        "https://ej-backend.onrender.com/api/v1/product/product-count"
       );
       setTotal(data?.total);
     } catch (error) {
@@ -25,7 +25,7 @@ const AdminInfo = () => {
     try {
       setLoadin(true);
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/product/productList/${page}`
+        `https://ej-backend.onrender.com/api/v1/product/productList/${page}`
       );
       setLoadin(false);
       setProducts(data?.products);
@@ -45,7 +45,7 @@ const AdminInfo = () => {
     try {
       setLoadin(true);
       const { data } = await axios.get(
-        `http://localhost:8080/api/v1/product/productList/${page}`
+        `https://ej-backend.onrender.com/api/v1/product/productList/${page}`
       );
       setLoadin(false);
       setProducts([...products, ...data?.products]);
@@ -57,7 +57,7 @@ const AdminInfo = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/api/v1/product/delete/${id}`);
+      await axios.delete(`https://ej-backend.onrender.com/api/v1/product/delete/${id}`);
       fetchProducts();
     } catch (error) {
       console.log(" Error in fetchinf products ", error);
@@ -90,7 +90,7 @@ const AdminInfo = () => {
                       >
                         <img
                           className="w-full"
-                          src={`http://localhost:8080/${p.images[0]}`}
+                          src={`https://ej-backend.onrender.com/${p.images[0]}`}
                           alt={p.name}
                         />
                         <div className="more-images flex">
@@ -100,7 +100,7 @@ const AdminInfo = () => {
                           >
                             <img
                               className="rounded"
-                              src={`http://localhost:8080/${p.images[1]}`}
+                              src={`https://ej-backend.onrender.com/${p.images[1]}`}
                               alt={p.name}
                             />
                           </a>
@@ -111,7 +111,7 @@ const AdminInfo = () => {
                           >
                             <img
                               className="rounded"
-                              src={`http://localhost:8080/${p.images[2]}`}
+                              src={`https://ej-backend.onrender.com/${p.images[2]}`}
                               alt={p.name}
                             />
                           </a>
