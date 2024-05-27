@@ -1,22 +1,23 @@
 // ProductCard.jsx
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./ProductCard.scss";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 const ProductCard = ({ product }) => {
   return (
     
-    <Link to={`/productDetails/${product.id}`}  className="product_Card_Wrapper max-w-lg bg-gray-50 rounded overflow-hidden m-4 border-[1px] border-gray-150 rounded">
-      <img className="w-full" src={product.image} alt={product.name} />
+    <Link to={`/productDetail/${product._id}`}  className="product_Card_Wrapper max-w-lg bg-gray-50 rounded overflow-hidden m-4 border-[1px] border-gray-150 rounded">
+      <img className="w-full" src={`http://localhost:8080/${product.images[0]}`} alt={product.name} />
       <div className="more-images flex">
         <a href="" className="w-1/5 m-2 shining-blue rounded border-[1px] border-blue">
-          <img className='rounded'  src={product.image} alt={product.name} />
+          <img className='rounded'  src={`http://localhost:8080/${product.images[1]}`} alt={product.name} />
         </a>
 
         <a href="" className="w-1/5 m-2 shining-blue rounded border-[1px] border-blue">
-          <img className='rounded' src={product.image} alt={product.name} />
+          <img className='rounded' src={`http://localhost:8080/${product.images[2]}`} alt={product.name} />
         </a>       
         
       </div>
@@ -42,55 +43,23 @@ const ProductCard = ({ product }) => {
   );
 };
 
-const products = [
-  {
-    id: 0,
-    name: "Nike Air01",
-    price: '198',
-    oldPrice:'270',
-    discount:'12% off',
-    image: 'https://www.pebblecart.com/cdn/shop/files/1_2_6d11a3ab-2740-4685-83b1-fbb6a897e9d9.jpg?v=1715685109',
-    ScreenSize :" ( 5.23 cm)",
-    Type : "Amoled Smartwatch",
-    DisplayType : "Amoled Display",
-
-  },
-  {
-    id: 1,
-    name: 'Pebble Mega',    
-    price: '255',
-    oldPrice:'270',
-    discount:'12%',
-    image: 'https://www.pebblecart.com/cdn/shop/files/3_0f6e0532-1ea5-4372-affd-46bc67edad52.jpg?v=1715685109',
-    ScreenSize :" ( 5.23 cm)",
-    Type : "Amoled Smartwatch",
-    DisplayType : "Amoled Display",
-  },
-  {
-    id: 2,
-    name: 'Pebble Viena',
-    price: '340',
-    oldPrice:'270',
-    discount:'12%',
-    image: 'https://www.pebblecart.com/cdn/shop/files/2_2.jpg?v=1715685109',
-    ScreenSize :" ( 5.23 cm)",
-    Type : "Amoled Smartwatch",
-    DisplayType : "Amoled Display",
-  },
-  {
-    id: 3,
-    name: 'Pebble Viena',
-    price: '340',
-    oldPrice:'270',
-    discount:'12%',
-    image: 'https://www.pebblecart.com/cdn/shop/files/2_2.jpg?v=1715685109',
-    ScreenSize :" ( 5.23 cm)",
-    Type : "Amoled Smartwatch",
-    DisplayType : "Amoled Display",
-  },
-];
-
 const ProductList = () => {
+  const [products,setProducts] = useState([]);
+  const getProducts = async()=>{
+    try {
+      const { data } = await axios.get(
+        "http://localhost:8080/api/v1/product/getLatest"
+      );
+      setProducts(data?.products);
+      console.log(data?.products)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(()=>{
+    getProducts()
+  },[])
   return (
     <>
     <div  className="head text-[#002D46] font-semibold text-4xl m-6 ">New Launches</div>      

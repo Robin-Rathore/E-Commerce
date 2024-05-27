@@ -32,8 +32,8 @@
 }
 
 .box .cart .updated .quantity .minus{
-    height: 2vh;
-    width: 2vh;
+    height: 3vh;
+    width: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,8 +41,8 @@
     border-radius: 50%;
 }
 .box .cart .updated .quantity .plus{
-    height: 2vh;
-    width: 2vh;
+    height: 3vh;
+    width: 3vh;
     display: flex;
     justify-content: center;
     align-items: center;

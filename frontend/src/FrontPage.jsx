@@ -26,7 +26,7 @@ const FrontPage = () => {
       };
       useEffect(()=>{
 getCart()
-      },[User?._id])
+      },[user?._id])
   return (
     <>
       <Header/>

@@ -16,9 +16,11 @@ import axios from "axios";
 const CartComponent = () => {
   const [state, setState] = React.useState({ right: false });
   const user = JSON.parse(localStorage.getItem("user"));
-  const [open,setOpen] = React.useState(false);
-  const [item, setItem] = React.useState();
-  const [price,setPrice] = React.useState()
+  const [open, setOpen] = React.useState(false);
+  const [item, setItem] = React.useState(null);
+  const [price, setPrice] = React.useState();
+  const [num, setNum] = React.useState(0);
+  const [quantity, setQuantity] = React.useState(null);
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
@@ -30,9 +32,9 @@ const CartComponent = () => {
 
     setState({ ...state, [anchor]: open });
   };
-const toggleModel = ()=>{
-  setOpen(!open)
-}
+  const toggleModel = () => {
+    setOpen(!open);
+  };
 
   const getCart = async () => {
     try {
@@ -49,7 +51,11 @@ const toggleModel = ()=>{
     try {
       let total = 0;
       item?.map(
-        (order) => (total = total + (order.price - (order.price * (order.discount/100))) * parseInt(order.quantity))
+        (order) =>
+          (total =
+            total +
+            (order.price - order.price * (order.discount / 100)) *
+              parseInt(order.quantity))
       );
       setPrice(total);
     } catch (error) {
@@ -57,15 +63,59 @@ const toggleModel = ()=>{
     }
   };
 
+  const handleIncrement = (uid, quantity) => {
+    setNum((prevNum) => {
+      const newNum = prevNum + 1;
+      const updatedQuantity = parseInt(quantity) + newNum;
+      handleChange(uid, updatedQuantity);
+      return newNum;
+    });
+    setNum(0);
+  };
+
+  const handleDecrement = (uid, quantity) => {
+    setNum((prevNum) => {
+      const newNum = prevNum - 1; // Prevent negative quantities
+      const updatedQuantity = parseInt(quantity) + newNum;
+      handleChange(uid, updatedQuantity);
+      return newNum;
+    });
+    setNum(0);
+  };
+
+  const handleChange = async (uid, qty) => {
+    try {
+      const { data } = await axios.post(
+        `http://localhost:8080/api/v1/user/updateCart/${user?._id}`,
+        { uid, qty }
+      );
+      getCart();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = async(uid)=>{
+    try {
+      const {data} = await axios.post(`http://localhost:8080/api/v1/user/deleteCart/${user?._id}`,{uid})
+      getCart()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  
 
 
-  React.useEffect(()=>{
-    totalPrice()
-  },[item])
 
-  React.useEffect(()=>{
-    getCart()
-  },[user?._id])
+  React.useEffect(() => {
+    totalPrice();
+  }, [item]);
+
+  React.useEffect(() => {
+    getCart();
+  }, [user?._id]);
+  
   const list = (anchor, items) => (
     <div className="Cart-Area">
       <div className="top">
@@ -74,28 +124,42 @@ const toggleModel = ()=>{
           <CloseIcon />{" "}
         </Button>
       </div>
-      {item ? (
+      {item?.length > 0 ? (
         <>
           {item?.map((c) => (
             <div className="box">
               <hr />
               <div className="cart">
                 <div className="item">
-                  <img src={`http://localhost:8080/${c.image}`} alt="item-image" />
+                  <img
+                    src={`http://localhost:8080/${c.image}`}
+                    alt="item-image"
+                  />
                   <h1>{c.name}</h1>
-                  <CloseIcon />
+                  <Button onClick={() => handleDelete(c?.uid)}>
+                    <CloseIcon />
+                  </Button>
                 </div>
                 <div className="updated item">
                   <div className="quantity">
-                    <div className="minus">
+                    <div
+                      className="minus"
+                      onClick={() => handleDecrement(c.uid, c.quantity)}
+                    >
                       <span>&#8722;</span>
                     </div>
-                    <p>{c.quantity}</p>
-                    <div className="plus">
+                    <p>{parseInt(c.quantity) + num}</p>
+                    <div
+                      className="plus"
+                      onClick={() => handleIncrement(c.uid, c.quantity)}
+                    >
                       <span>&#43;</span>
                     </div>
                   </div>
-                  <p>₹{c.price - (c.price * (c.discount/100))} M.R.P.: ₹{c.price} ({c.discount}% Off)</p>
+                  <p>
+                    ₹{c.price - c.price * (c.discount / 100)} M.R.P.: ₹{c.price}{" "}
+                    ({c.discount}% Off)
+                  </p>
                 </div>
                 <hr />
               </div>
@@ -110,19 +174,19 @@ const toggleModel = ()=>{
                     checkout page
                   </h5>
                   <Link
-              style={{
-                display: "inline-block",
-                textDecoration: "none",
-                color: "inherit",
-                width: "100%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              to={"/OrderDetails"}
-            >
-              <button
-                className='button_cart2
+                    style={{
+                      display: "inline-block",
+                      textDecoration: "none",
+                      color: "inherit",
+                      width: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                    to={"/OrderDetails"}
+                  >
+                    <button
+                      className='button_cart2
                   relative z-0 flex items-center gap-2 overflow-hidden rounded-lg border-[1px] 
                     px-4 py-2 font-semibold
                   uppercase transition-all duration-500
@@ -138,10 +202,10 @@ const toggleModel = ()=>{
                   hover:before:translate-x-[0%]
                   hover:before:translate-y-[0%]
                   active:scale-95'
-              >
-                <span>Place Order ₹{price}</span>
-              </button>
-            </Link>
+                    >
+                      <span>Place Order ₹{price}</span>
+                    </button>
+                  </Link>
                   {/* <button>Place Order ₹{price}</button> */}
                 </div>
               </footer>

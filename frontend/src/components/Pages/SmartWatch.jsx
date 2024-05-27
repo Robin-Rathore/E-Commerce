@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./SmartWatch.scss";
 import Header from "../Header";
 import Footer from "../Footer";
 import TopSlider from "../TopSlider";
+import axios from "axios";
 const SmartWatch = () => {
+  const [items,setItems] = useState([])
+  const smartWatch = "watch"
+  const getItems = async()=>{
+    const {data} = await axios.post("http://localhost:8080/api/v1/product/filteredProducts",{category:smartWatch})
+    setItems(data?.products)
+  }
+  useEffect(()=>{
+    getItems();
+  },[]);
   return (
     <>
       <div className="top_heade">

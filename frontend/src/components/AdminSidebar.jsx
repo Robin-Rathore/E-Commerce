@@ -20,7 +20,7 @@ const { Header, Sider } = Layout;
 
 const items = [
   {
-    key: "/user",
+    key: "/users",
     icon: <UserOutlined />,
     label: "Users",
   },
