@@ -21,6 +21,8 @@ import UpdateProduct from './components/UpdateProduct';
 import OrderDetails from './components/OrderDetails';
 import Users from './components/Users';
 import StripeCheckout from './components/StripeCheckout';
+import LuxeEditionPage from './components/Pages/LuxeEditionPage';
+import ValueEditionPage from './components/Pages/ValueEditionPage';
 
 function App() {
   return (
@@ -45,6 +47,8 @@ function App() {
             <Route path="/myOrders" element={<MyOrders/>} />
             <Route path="/addProductToAdvPage" element={<AddAdvPageProduct/>} />
             <Route path="/AdminInfo" element={<AdminInfo/>} />
+            <Route path="/luxeEditionPage" element={<LuxeEditionPage/>} />
+            <Route path="/ValueEditionPage" element={<ValueEditionPage/>} />
             <Route path="/OrderDetails" element={<OrderDetails/>} />
             <Route path="/users" element={<Users/>} />
             <Route path="/stripeCheckout" element={<StripeCheckout/>} />

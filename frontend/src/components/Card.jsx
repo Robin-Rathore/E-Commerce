@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Carousel.scss";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 function Card() {
   useEffect(() =>{
     const delay = 1000;
@@ -20,7 +21,7 @@ function Card() {
         <h1>Explore Collections</h1>
       </div>
       <div className="cardContainer">
-        <a href="">
+        <Link to={"/luxeEditionPage"}>
           <div data-aos="zoom-in" className="card1">
             <div className="iamge-holder">
               <img
@@ -38,7 +39,7 @@ function Card() {
               <h2> Luxe Edition</h2>
             </div>
           </div>
-        </a>
+        </Link>
         <a href="">
           <div data-aos="zoom-in" className="card1">
             <div className="image-holder">
@@ -58,7 +59,7 @@ function Card() {
             </div>
           </div>
         </a>
-        <a href="">
+        <Link to={"/newlaunches"}>
           <div data-aos="zoom-in" className="card1">
             <div className="image-holder">
               <img
@@ -73,11 +74,11 @@ function Card() {
               />
             </div>
             <div className="image-text">
-              <h2> Women's Edition</h2>
+              <h2> New Launches</h2>
             </div>
           </div>
-        </a>
-        <a href="">
+        </Link>
+        <Link to={"/ValueEditionPage"}>
           <div data-aos="zoom-in" className="card1">
             <div className="image-holder">
               <img
@@ -95,7 +96,7 @@ function Card() {
               <h2> Value Edition</h2>
             </div>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );

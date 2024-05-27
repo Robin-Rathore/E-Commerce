@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import Header from "./Header";
-import TopSlider from "./TopSlider";
-import Footer from "./Footer";
 import "./BulkOrderPage.scss";
-import toast from "react-hot-toast";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { loadStripe } from "@stripe/stripe-js";
+import TopSlider from './TopSlider';
+import Footer from './Footer';
+import toast from 'react-hot-toast';
+import emailjs from "@emailjs/browser"
 
 const OrderDetails = () => {
   const params = useParams();
@@ -155,6 +155,22 @@ useEffect(()=>{
                   onChange={(e) => setFullAddress(e.target.value)}
                   placeholder="Type here"
                   required="required"
+                />
+              </div>
+              <div className="field">
+                <label
+                  htmlFor="ContactForm-template--15263579570219__bulk_order-tentativetimeline"
+                  className="label1"
+                >
+                  Street, house No. city, State<span>*</span>
+                </label>
+                <input
+                  id="ContactForm-template--15263579570219__bulk_order-tentativetimeline"
+                  className="field__input"
+                  type="text"
+                  name="area"
+                  maxLength="100"
+                  placeholder="Type here"
                 />
               </div>
             </div>
