@@ -29,14 +29,14 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="pricing flex flex-wrap ">
-        <div className="font-bold text-[#002D46] text-lg mb-2 ml-2">&#8377;{product.price}</div>
-        <div className="old ml-2 my-auto ml-2 text-gray-400" style={{textDecoration: "line-through"}}>&#8377;{product.oldPrice}</div>
-        <div className="discount mr-2 my-auto ml-3 font-bold" style={{color:"#FF6D5C"}}> {'('}{product?.discount}{')'} </div>
+        <div className="font-bold text-[#002D46] text-lg mb-2 ml-2">&#8377;{product?.price - product?.price * (product?.discount / 100)}</div>
+        <div className="old ml-2 my-auto ml-2 text-gray-400" style={{textDecoration: "line-through"}}>&#8377;{product.price}</div>
+        <div className="discount mr-2 my-auto ml-3 font-bold" style={{color:"#FF6D5C"}}> {'('}{product?.discount}{'%)'} </div>
       </div>
 
       <div className="offer px-2 py-2 flex flex-wrap  text-[#002D46] ">
         <img className='h-12 w-12' src="https://www.pebblecart.com/cdn/shop/files/wow-removebg-preview.png?v=1707281388&width=100" alt=""/>
-        <div className="second  my-auto ml-3 font-bold "> &#8377;{product.price}</div>
+        <div className="second  my-auto ml-3 font-bold "> &#8377;{product?.price - product?.price * (product?.discount / 100)}</div>
         <div className="third my-auto ml-2"> with Bank offer</div>
       </div>
     </Link>

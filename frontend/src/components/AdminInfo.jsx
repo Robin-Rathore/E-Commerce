@@ -128,7 +128,7 @@ const AdminInfo = () => {
 
                         <div className="pricing flex flex-wrap ">
                           <div className="font-bold text-[#002D46] text-lg mb-2 ml-2">
-                            &#8377;{p.price}
+                            &#8377;{p.price - p.price * (p.discount / 100)} M.R.P.: ₹{p.price}{" "}
                           </div>
                           <div
                             className="old ml-2 my-auto ml-2 text-gray-400"
@@ -142,7 +142,7 @@ const AdminInfo = () => {
                           >
                             {" "}
                             {"("}
-                            {p?.discount}
+                            {p?.discount} %
                             {")"}{" "}
                           </div>
                         </div>
