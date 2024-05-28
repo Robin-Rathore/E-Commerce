@@ -132,7 +132,7 @@ const CartComponent = () => {
               <div className="cart">
                 <div className="item">
                   <img
-                    src={`https://ej-backend.onrender.com/${c.image}`}
+                    src={c.image}
                     alt="item-image"
                   />
                   <h1>{c.name}</h1>

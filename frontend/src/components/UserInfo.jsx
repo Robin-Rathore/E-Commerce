@@ -93,7 +93,7 @@ const UserInfo = () => {
                             <StyledTableRow className="ma" key={product.name}>
                               <StyledTableCell component="th" scope="row">
                                 <img
-                                  src={`https://ej-backend.onrender.com/${product.image}`}
+                                  src={product.image}
                                 />
                               </StyledTableCell>
                               <StyledTableCell align="right">

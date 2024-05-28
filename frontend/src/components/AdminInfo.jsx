@@ -90,7 +90,7 @@ const AdminInfo = () => {
                       >
                         <img
                           className="w-full"
-                          src={`https://ej-backend.onrender.com/${p.images[0]}`}
+                          src={p.images[0]}
                           alt={p.name}
                         />
                         <div className="more-images flex">
@@ -100,7 +100,7 @@ const AdminInfo = () => {
                           >
                             <img
                               className="rounded"
-                              src={`https://ej-backend.onrender.com/${p.images[1]}`}
+                              src={p.images[1]}
                               alt={p.name}
                             />
                           </a>
@@ -111,7 +111,7 @@ const AdminInfo = () => {
                           >
                             <img
                               className="rounded"
-                              src={`https://ej-backend.onrender.com/${p.images[2]}`}
+                              src={p.images[2]}
                               alt={p.name}
                             />
                           </a>

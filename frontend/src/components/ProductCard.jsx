@@ -10,14 +10,14 @@ const ProductCard = ({ product }) => {
   return (
     
     <Link to={`/productDetail/${product._id}`}  className="product_Card_Wrapper max-w-lg bg-gray-50 rounded overflow-hidden m-4 border-[1px] border-gray-150 rounded">
-      <img className="w-full" src={`https://ej-backend.onrender.com/${product.images[0]}`} alt={product.name} />
+      <img className="w-full" src={product.images[0]} alt={product.name} />
       <div className="more-images flex">
         <a href="" className="w-1/5 m-2 shining-blue rounded border-[1px] border-blue">
-          <img className='rounded'  src={`https://ej-backend.onrender.com/${product.images[1]}`} alt={product.name} />
+          <img className='rounded'  src={product.images[1]} alt={product.name} />
         </a>
 
         <a href="" className="w-1/5 m-2 shining-blue rounded border-[1px] border-blue">
-          <img className='rounded' src={`https://ej-backend.onrender.com/${product.images[2]}`} alt={product.name} />
+          <img className='rounded' src={product.images[2]} alt={product.name} />
         </a>       
         
       </div>

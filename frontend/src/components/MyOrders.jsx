@@ -107,7 +107,7 @@ const MyOrders = () => {
                                 >
                                   <StyledTableCell component="th" scope="row">
                                     <img
-                                      src={`https://ej-backend.onrender.com/${product.image}`}
+                                      src={product.image}
                                     />
                                   </StyledTableCell>
                                   <StyledTableCell align="right">

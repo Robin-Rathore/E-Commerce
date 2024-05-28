@@ -112,25 +112,25 @@ const AdvPage = () => {
             <div className="images">
               <div data-aos="zoom-in" className="image_item">
                 <img
-                  src={`https://ej-backend.onrender.com/${product?.images[0]}`}
+                  src={product?.images[0]}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-left" className="image_item">
                 <img
-                  src={`https://ej-backend.onrender.com/${product?.images[1]}`}
+                  src={product?.images[1]}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-down" className="image_item">
                 <img
-                  src={`https://ej-backend.onrender.com/${product?.images[2]}`}
+                  src={product?.images[2]}
                   alt=""
                 />
               </div>
               <div data-aos="zoom-in-right" className="image_item">
                 <img
-                  src={`https://ej-backend.onrender.com/${product?.images[3]}`}
+                  src={product?.images[3]}
                   alt=""
                 />
               </div>
