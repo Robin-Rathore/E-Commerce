@@ -18,6 +18,7 @@ import CableIcon from '@mui/icons-material/Cable';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import RssFeedIcon from '@mui/icons-material/RssFeed';
 import { Link } from 'react-router-dom';
+import { Home } from '@mui/icons-material';
 export default function Sidebar() {
 
     const FlyoutLink = ({ children, href}) => {
@@ -53,6 +54,16 @@ export default function Sidebar() {
 
   const DrawerList = (
     <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
+      <List>
+          <ListItem key={"HOME"} disablePadding>
+            <ListItemButton>
+               <ListItemIcon>
+                {<Home />}
+              </ListItemIcon> 
+              <Link to={"/"}><FlyoutLink> HOME </FlyoutLink></Link>
+            </ListItemButton>
+          </ListItem>
+      </List>
       <List>
           <ListItem key={"SMART WATCHES"} disablePadding>
             <ListItemButton>

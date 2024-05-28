@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import './ProductDetail.css';
+import './ProductDetail.scss';
 import data from './data';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Header from './Header';
+import NewLaunches from './Pages/NewLaunches';
+import ProductList from './ProductList';
+import Footer from './Footer';
 
 const ProductDetail = () => {
   
@@ -66,7 +69,6 @@ const ProductDetail = () => {
 
   return (
     <>
-      <Header/>
       <section className='pt-6 lg:py-12 lg:h-screen pl-4 pr-4 pb-[20px] p-8'>
         <div className='container mx-auto flex flex-col lg:flex-row'>
           <div className="lg:w-1/2">
@@ -233,6 +235,8 @@ const ProductDetail = () => {
           </div>
         </div>
       </section>
+      <ProductList/>
+      <Footer/>
     </>
   );
 }

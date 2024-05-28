@@ -1,0 +1,39 @@
+@mixin mobile {
+  @media screen and (max-width: 520px) {
+    @content;
+  }
+}
+.productImage img {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+  }
+  
+  .productImage img.fade-out {
+    opacity: 0;
+  }
+
+  .detail strong {
+    color: #919291;
+  }
+
+  .tag1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .productName{
+    @include mobile(){
+      font-size: 25px !important;
+    }
+  }
+  .description{
+    @include mobile(){
+      font-size: 15px !important;
+    }
+  }
+  .present-cost{
+     @include mobile(){
+      font-size: 30px !important;
+     }
+  }
