@@ -5,7 +5,7 @@ import Footer from './Footer'
 
 const Users = () => {
     const [users,setUsers] = useState()
-    const getusers= async()=>{
+    const getusers = async ()=> {
         try {
             const {data}  = await axios.get("https://ej-backend.onrender.com/api/v1/user/admin/users")
             setUsers(data?.users)
@@ -15,7 +15,8 @@ const Users = () => {
     }
     useEffect(()=>{
         getusers()
-    },[])
+    },[]);
+
   return (
     <>
         <Header/>

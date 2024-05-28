@@ -143,7 +143,7 @@ const Header = () => {
                 <li>
                   <dropdown-menu className="">
                     <a
-                      href="/blogs/corporate-gifting"
+                      href="https://youtube.com/@raghavkennel7716?si=jLZP_TqMw0MWxgDc"
                       className="header__menu-item header__menu-item--top list-menu__item focus-inset"
                     >
                       <FlyoutLink>

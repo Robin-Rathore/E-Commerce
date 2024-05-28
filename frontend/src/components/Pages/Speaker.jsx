@@ -28,17 +28,9 @@ const Speaker = () => {
       <div
         className={`min-h-screen flex flex-col justify-center px-5 pt-24 lg:pt-16 'details-open' }`}
       >
-        <div className="flex flex-wrap justify-center gap-5 pt-8">
-          {items.map((item) => (
-            <ProductCard
-              key={item.id}
-              id={item.id}
-              img={item.img}
-              name={item.name}
-              price={item.price}
-              discount={item.discount}
-              description={item.description}
-            />
+        <div className="flex flex-wrap justify-center">
+          {items.map((product, index) => (
+            <ProductCard key={index} product={product} />
           ))}
         </div>
       </div>

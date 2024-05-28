@@ -4,6 +4,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import TopSlider from '../TopSlider';
 import axios from 'axios';
+import ProductCard from '../ProductCard';
 
 const Accessories = () => {
   const [item,setItems] = useState([])
@@ -27,23 +28,11 @@ const Accessories = () => {
           <h1>Accessories</h1>
         </div>
       </div>
-      <div
-        className={`min-h-screen flex flex-col justify-center px-5 pt-24 lg:pt-16 'details-open' }`}
-      >
-        {/* <div className="flex flex-wrap justify-center gap-5 pt-8">
-          {firstTenItems.map((item) => (
-            <ProductCard
-              key={item.id}
-              id={item.id}
-              img={item.img}
-              name={item.name}
-              price={item.price}
-              discount={item.discount}
-              description={item.description}
-            />
+      <div className="flex flex-wrap justify-center">
+          {item.map((product, index) => (
+            <ProductCard key={index} product={product} />
           ))}
-        </div> */}
-      </div>
+        </div>
     </div>
     <Footer />
     </>

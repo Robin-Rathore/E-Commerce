@@ -11,6 +11,8 @@ import Card from './components/Card';
 import ProductCard from './components/ProductCard';
 import axios from 'axios';
 import { User } from 'lucide-react';
+// import ProductList from "./components/ProductCard"
+import ProductList from './components/ProductList';
 const FrontPage = () => {
     const [item,setItem] = useState()
     const user = JSON.parse(localStorage?.getItem("user"));
@@ -33,7 +35,8 @@ getCart()
       <TopSlider/>
       <Slideshow/>
       <Card/>
-      <ProductCard/>
+      {/* <ProductCard/> */}
+      <ProductList/>
       {/* <Divider style={{marginTop:"20px"}}/> */}
       <IconsSection/>
       <AdvPage/>

@@ -1,12 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from '../Footer'
 import TopSlider from '../TopSlider'
 import Header from '../Header'
+import axios from 'axios'
 
 const ValueEditionPage = () => {
+  const [items, setItems] = useState([]);
+  const smartWatch = "watch";
+  const getItems = async () => {
+    const { data } = await axios.post(
+      "http://localhost:8080/api/v1/product/filteredProducts",
+      { category: smartWatch }
+    );
+    setItems(data?.products);
+  };
+  useEffect(() => {
+    getItems();
+  }, []);
   return (
     <>
-     <div className="top_heade">
+      <div className="top_heade">
         <Header />
         <TopSlider/>
       </div>
@@ -16,25 +29,13 @@ const ValueEditionPage = () => {
           <h1>Value Edition</h1>
         </div>
       </div>
-      <div
-        className={`min-h-screen flex flex-col justify-center px-5 pt-24 lg:pt-16 'details-open' }`}
-      >
-        {/* <div className="flex flex-wrap justify-center gap-5 pt-8">
-          {firstTenItems.map((item) => (
-            <ProductCard
-              key={item.id}
-              id={item.id}
-              img={item.img}
-              name={item.name}
-              price={item.price}
-              discount={item.discount}
-              description={item.description}
-            />
+      <div className="flex flex-wrap justify-center">
+          {items.map((product, index) => (
+            <ProductCard key={index} product={product} />
           ))}
-        </div> */}
-      </div>
+        </div>
     </div>
-    <Footer /> 
+    <Footer />
     </>
   )
 }

@@ -7,6 +7,8 @@ import axios from 'axios';
 
 
 const ProductCard = ({ product }) => {
+  console.log("Products : ", product);
+
   return (
     
     <Link to={`/productDetail/${product._id}`}  className="product_Card_Wrapper max-w-lg bg-gray-50 rounded overflow-hidden m-4 border-[1px] border-gray-150 rounded">
@@ -43,33 +45,5 @@ const ProductCard = ({ product }) => {
   );
 };
 
-const ProductList = () => {
-  const [products,setProducts] = useState([]);
-  const getProducts = async()=>{
-    try {
-      const { data } = await axios.get(
-        "https://ej-backend.onrender.com/api/v1/product/getLatest"
-      );
-      setProducts(data?.products);
-      console.log(data?.products)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
-  useEffect(()=>{
-    getProducts()
-  },[])
-  return (
-    <>
-    <div  className="head text-[#002D46] font-semibold text-4xl m-6 ">New Launches</div>      
-    <div className="flex flex-wrap justify-center">
-      {products.map((product, index) => (
-        <ProductCard key={index} product={product} />
-      ))}
-    </div>
-    </>
-  );
-};
-
-export default ProductList;
+export default ProductCard;

@@ -6,7 +6,7 @@ import TopSlider from "../TopSlider";
 import axios from "axios";
 import ProductCard from '../ProductCard'
 const NewLaunches = () => {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
     try {
       const { data } = await axios.get(
@@ -28,23 +28,14 @@ const NewLaunches = () => {
       </div>
       <div className="wrapper_of_SmartWatch">
         <div className="main_content_SmartWatch">
+          <div className="heading_SmartWatch">
+            <h1>New Launches</h1>
+          </div>
         </div>
-        <div
-          className={`min-h-screen flex flex-col justify-center px-5 pt-24 lg:pt-16 'details-open' }`}
-        >
-          <div className="flex flex-wrap justify-center gap-5 pt-8">
-          {products?.map((item) => (
-            <ProductCard
-              key={item._id}
-              id={item._id}
-              img={item.img}
-              name={item.name}
-              price={item.price}
-              discount={item.discount}
-              description={item.description}
-            />
+        <div className="flex flex-wrap justify-center">
+          {products.map((product, index) => (
+            <ProductCard key={index} product={product} />
           ))}
-        </div>
         </div>
       </div>
       <Footer />

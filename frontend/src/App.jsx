@@ -23,11 +23,13 @@ import Users from './components/Users';
 import StripeCheckout from './components/StripeCheckout';
 import LuxeEditionPage from './components/Pages/LuxeEditionPage';
 import ValueEditionPage from './components/Pages/ValueEditionPage';
+import ScrollToTop from './components/ScrollComponent';
 
 function App() {
   return (
     <>
         <BrowserRouter> 
+        <ScrollToTop/>
           <Routes>
             <Route path="/" element={<FrontPage />} />
             <Route path="/login" element={<Login />} />
