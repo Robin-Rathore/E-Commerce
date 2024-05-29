@@ -15,12 +15,12 @@ const viewPortWidth = window.innerWidth;
 const imgs = viewPortWidth >= 520 ? 
   [
     "https://img.freepik.com/free-vector/dark-style-realistic-smart-watch-horizontal-banner-with-advertising-site-vector-illustration_1284-30193.jpg?t=st=1716268785~exp=1716272385~hmac=59eb9330d3a7f3ba471fbfc5e99d7c2f1b75ecfd2ada0fd5d95fe617f6488422&w=2000",
-    "https://img.freepik.com/free-photo/rendering-smart-home-device_23-2151039302.jpg?t=st=1716270114~exp=1716273714~hmac=71ed42d48d47ffc3386039b073db9d7657c71d68f84c151dc42e228168fb9780&w=2000",
-    "https://img.freepik.com/free-photo/rendering-smart-home-device_23-2151039304.jpg?t=st=1716272506~exp=1716276106~hmac=2a0130073d49e843ca2f6f1380906bd523bf171353fd5f43f0b482674026eaaa&w=2000",
+    img5,
+    img3,
     "https://img.freepik.com/premium-photo/technology-panoramic-banner-collage_23-2151252958.jpg?w=1800",
     "https://fdn.gsmarena.com/imgroot/news/21/06/huawei-watch-3-announced/-728x314/gsmarena_000.jpg",
     imgbg1,
-    "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
+    img2,
   ] :
   [
     img6,
