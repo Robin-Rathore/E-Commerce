@@ -307,7 +307,7 @@ const Footer = () => {
                           <div className="bottom-cta-wrapper">
                             <a
                               className="button2"
-                              href="/pages/register-your-product"
+                              href="/"
                             >
                               Register Your Product
                             </a>
@@ -365,7 +365,7 @@ const Footer = () => {
                           <a
                             target="_blank"
                             rel="noopener"
-                            href="#"
+                            href="https://youtube.com/@raghavkennel7716?si=jLZP_TqMw0MWxgDc"
                             className="list-social__link link link--text link-with-icon"
                             aria-describedby="a11y-external-message"
                           >
