@@ -10,6 +10,7 @@ import { Link, json, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Header from './Header'
 import TopSlider from './TopSlider'
+import toast from 'react-hot-toast'
 
 
 const Login = () => {
@@ -24,12 +25,15 @@ const Login = () => {
       if(data?.success){
         if(data?.user?.role==0){
           navigate("/user")
+          toast.success("Logged In Sucessfully");
         }else{
           navigate("/admin")
+          toast.success("Logged In Sucessfully");
         }
       }
       
     } catch (error) {
+      toast.error("Wrong Credentials");
       console.log(error)
     }
   }

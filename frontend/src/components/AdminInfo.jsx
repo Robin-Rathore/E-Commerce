@@ -59,6 +59,7 @@ const AdminInfo = () => {
     try {
       await axios.delete(`https://ej-backend.onrender.com/api/v1/product/delete/${id}`);
       fetchProducts();
+      toast.success("Product Deleted Sucessfully");
     } catch (error) {
       console.log(" Error in fetchinf products ", error);
     }

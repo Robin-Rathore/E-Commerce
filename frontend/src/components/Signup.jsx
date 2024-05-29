@@ -7,6 +7,7 @@ import twitter from "../images/twitter-icon.png";
 import axios from "axios";
 import Header from "./Header";
 import TopSlider from "./TopSlider";
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -24,9 +25,11 @@ const Signup = () => {
       console.log(data?.user);
       if (data?.success) {
         navigate("/login");
+        toast.success("Registered In Sucessfully");
       }
     } catch (error) {
       console.log(error);
+      toast.error("Something Went Wrong");
     }
   };
   return (

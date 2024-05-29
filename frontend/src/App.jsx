@@ -24,11 +24,13 @@ import StripeCheckout from './components/StripeCheckout';
 import LuxeEditionPage from './components/Pages/LuxeEditionPage';
 import ValueEditionPage from './components/Pages/ValueEditionPage';
 import ScrollToTop from './components/ScrollComponent';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <>
         <BrowserRouter> 
+        <Toaster />
         <ScrollToTop/>
           <Routes>
             <Route path="/" element={<FrontPage />} />
