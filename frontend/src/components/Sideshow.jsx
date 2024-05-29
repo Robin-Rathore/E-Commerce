@@ -8,6 +8,8 @@ import img2 from "../images/SliderImage2.jpeg"
 import img3 from "../images/SliderImage3.jpeg"
 import img4 from "../images/SliderImage4.jpeg"
 import img5 from "../images/SliderImage5.jpeg"
+import img6 from "../images/rado.jpeg"
+import img7 from "../images/rolex.jpeg"
 import imgbg1 from "../images/SliderImagebg1.jpeg"
 const viewPortWidth = window.innerWidth;
 const imgs = viewPortWidth >= 520 ? 
@@ -21,10 +23,10 @@ const imgs = viewPortWidth >= 520 ?
     "https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
   ] :
   [
-    img1,
+    img6,
     img3,
-    "https://img.freepik.com/free-photo/rendering-smart-home-device_23-2151039302.jpg?t=st=1716270114~exp=1716273714~hmac=71ed42d48d47ffc3386039b073db9d7657c71d68f84c151dc42e228168fb9780&w=2000",
-    "https://img.freepik.com/free-photo/rendering-smart-home-device_23-2151039304.jpg?t=st=1716272506~exp=1716276106~hmac=2a0130073d49e843ca2f6f1380906bd523bf171353fd5f43f0b482674026eaaa&w=2000",
+    img1,
+    img7,
     img2,
     img4,
     img5,
