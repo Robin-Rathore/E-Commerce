@@ -25,6 +25,7 @@ import LuxeEditionPage from './components/Pages/LuxeEditionPage';
 import ValueEditionPage from './components/Pages/ValueEditionPage';
 import ScrollToTop from './components/ScrollComponent';
 import { Toaster } from 'react-hot-toast';
+import AllProducts from './components/Pages/AllProducts';
 
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
             <Route path="/ValueEditionPage" element={<ValueEditionPage/>} />
             <Route path="/OrderDetails" element={<OrderDetails/>} />
             <Route path="/users" element={<Users/>} />
+            <Route path="/viewall" element={<AllProducts/>} />
             <Route path="/stripeCheckout" element={<StripeCheckout/>} />
           </Routes>
         </BrowserRouter>

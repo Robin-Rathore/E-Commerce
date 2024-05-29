@@ -85,7 +85,7 @@ const PricingContent = () => {
         </a>
         </Link>
       </div>
-      <Link to={"/newlaunches"}> 
+      <Link to={"/viewall"}> 
       <button data-aos="fade-up" className="w-full rounded-lg border-2 border-neutral-900 px-4 py-2 font-semibold transition-colors hover:bg-DarkColor hover:text-white">
         View All
       </button>

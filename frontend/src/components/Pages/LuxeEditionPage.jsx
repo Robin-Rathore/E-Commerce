@@ -3,19 +3,22 @@ import Header from '../Header'
 import TopSlider from '../TopSlider'
 import Footer from '../Footer'
 import axios from 'axios'
+import ProductCard from '../ProductCard'
 
 const LuxeEditionPage = () => {
-  const [items, setItems] = useState([]);
-  const smartWatch = "watch";
-  const getItems = async () => {
-    const { data } = await axios.post(
-      "http://localhost:8080/api/v1/product/filteredProducts",
-      { category: smartWatch }
-    );
-    setItems(data?.products);
+  const [products, setProducts] = useState([]);
+  const fetchProducts = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://ej-backend.onrender.com/api/v1/product/getProducts"
+      );
+      setProducts(data?.products);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
   };
   useEffect(() => {
-    getItems();
+    fetchProducts();
   }, []);
   return (
     <>
@@ -30,7 +33,7 @@ const LuxeEditionPage = () => {
         </div>
       </div>
       <div className="flex flex-wrap justify-center">
-          {items.map((product, index) => (
+          {products.map((product, index) => (
             <ProductCard key={index} product={product} />
           ))}
         </div>

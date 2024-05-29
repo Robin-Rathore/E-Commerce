@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Footer from '../Footer'
-import TopSlider from '../TopSlider'
-import Header from '../Header'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import "./SmartWatch.scss";
+import Header from "../Header";
+import Footer from "../Footer";
+import TopSlider from "../TopSlider";
+import axios from "axios";
 import ProductCard from '../ProductCard'
-
-const ValueEditionPage = () => {
+const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
     try {
@@ -24,23 +24,23 @@ const ValueEditionPage = () => {
     <>
       <div className="top_heade">
         <Header />
-        <TopSlider/>
+        <TopSlider />
       </div>
-    <div className="wrapper_of_SmartWatch">
-      <div className="main_content_SmartWatch">
-        <div className="heading_SmartWatch">
-          <h1>Value Edition</h1>
+      <div className="wrapper_of_SmartWatch">
+        <div className="main_content_SmartWatch">
+          <div className="heading_SmartWatch">
+            <h1>View All</h1>
+          </div>
         </div>
-      </div>
-      <div className="flex flex-wrap justify-center">
+        <div className="flex flex-wrap justify-center">
           {products.map((product, index) => (
             <ProductCard key={index} product={product} />
           ))}
         </div>
-    </div>
-    <Footer />
+      </div>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default ValueEditionPage
+export default AllProducts;
